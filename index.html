@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 700px;
+            width: 80%;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
+                rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+                rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+                rgba(0, 0, 0, 0.07) 0px 32px 64px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        var map = L.map("map").setView([22.3511148, 78.6677428], 3); // Set initial coordinates and zoom level
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([32.31823, -86.902298]).addTo(map).bindPopup("Alabama");
+        L.marker([-25.274399, 133.775131]).addTo(map).bindPopup("Australia");
+        L.marker([23.685, 90.3563]).addTo(map).bindPopup("Bangladesh");
+        L.marker([50.5039, 4.4699]).addTo(map).bindPopup("Belgium");
+        L.marker([22.3285, 24.6849]).addTo(map).bindPopup("Botswana");
+        L.marker([14.235, 51.9253]).addTo(map).bindPopup("Brazil");
+        L.marker([4.5353, 114.7277]).addTo(map).bindPopup("Brunei");
+        L.marker([42.7339, 25.4858]).addTo(map).bindPopup("Bulgaria");
+        L.marker([12.2383, 1.5616]).addTo(map).bindPopup("Burkina Faso");
+        L.marker([56.1304, 106.3468]).addTo(map).bindPopup("Canada");
+        L.marker([35.6751, 71.543]).addTo(map).bindPopup("Chile");
+        L.marker([35.8617, 104.1954]).addTo(map).bindPopup("China");
+        L.marker([4.5709, 74.2973]).addTo(map).bindPopup("Colombia");
+        L.marker([7.54, 5.5471]).addTo(map).bindPopup("Côte d'Ivoire");
+        L.marker([45.1, 15.2]).addTo(map).bindPopup("Croatia");
+        L.marker([49.8175, 15.473]).addTo(map).bindPopup("Czech Republic ");
+        L.marker([56.2639, 9.5018]).addTo(map).bindPopup("Denmark");
+        L.marker([26.8206, 30.8025]).addTo(map).bindPopup("egypt");
+        L.marker([54.526, 15.2551]).addTo(map).bindPopup("Europe");
+        L.marker([61.9241, 25.7482]).addTo(map).bindPopup("FINLAND");
+        L.marker([46.2276, 2.2137]).addTo(map).bindPopup("France");
+        L.marker([51.1657, 10.4515]).addTo(map).bindPopup("Germany");
+        L.marker([7.9465, 1.0232]).addTo(map).bindPopup("Ghana");
+        L.marker([50.2945, 18.6714]).addTo(map).bindPopup("Gliwice");
+        L.marker([39.0742, 21.8243]).addTo(map).bindPopup("Greece");
+        L.marker([47.1625, 19.5033]).addTo(map).bindPopup("Hungary");
+        L.marker([64.9631, 19.0208]).addTo(map).bindPopup("Iceland");
+        L.marker([20.5937, 78.9629]).addTo(map).bindPopup("India");
+        L.marker([0.7893, 113.9213]).addTo(map).bindPopup("Indonesia");
+        L.marker([33.2232, 43.6793]).addTo(map).bindPopup("Iraq");
+        L.marker([53.7798, 7.3055]).addTo(map).bindPopup("Ireland");
+        L.marker([20.5937, 78.9629]).addTo(map).bindPopup("Israel");
+        L.marker([41.8719, 12.5674]).addTo(map).bindPopup("Italy");
+
+        L.marker([47.368594, 8.536377]).addTo(map).bindPopup("Zürich");
+        L.marker([14.0583, 133.775131]).addTo(map).bindPopup("Vietnam");
+        L.marker([37.0902, 995.7129]).addTo(map).bindPopup("United States");
+        L.marker([61.191, 149.8196])
+            .addTo(map)
+            .bindPopup("university of Alaska Anchorage");
+        L.marker([55.3781, 3.436]).addTo(map).bindPopup("United Kingdom");
+        L.marker([23.4241, 53.8478]).addTo(map).bindPopup("United Arab Emirates");
+        L.marker([48.3794, 31.1656]).addTo(map).bindPopup("Ukraine");
+        L.marker([1.3733, 32.2903]).addTo(map).bindPopup("Uganda");
+        L.marker([38.9637, 35.2433]).addTo(map).bindPopup("Turkey");
+        L.marker([33.8869, 9.5375]).addTo(map).bindPopup("Tunisia");
+        L.marker([10.6918, 61.2225]).addTo(map).bindPopup("Trinidad and Tobago");
+        L.marker([15.87, 100.9925]).addTo(map).bindPopup("Thailand");
+        L.marker([6.369, 34.8888]).addTo(map).bindPopup("Tanzania");
+        L.marker([23.6978, 120.9605]).addTo(map).bindPopup("Taiwan");
+        L.marker([46.8182, 8.2275]).addTo(map).bindPopup("Switzerland");
+        L.marker([60.1282, 18.6435]).addTo(map).bindPopup("Sweden");
+        L.marker([7.8731, 80.7718]).addTo(map).bindPopup("Sri Lanka");
+        L.marker([0.4637, 3.7492]).addTo(map).bindPopup("Spain");
+        L.marker([35.9078, 127.7669]).addTo(map).bindPopup("South Korea");
+        L.marker([30.5595, 22.9375]).addTo(map).bindPopup("South Africa");
+        L.marker([48.669, 19.699]).addTo(map).bindPopup("Slovakia");
+        L.marker([1.3521, 103.8198]).addTo(map).bindPopup("Singapore");
+        L.marker([44.0165, 21.0059]).addTo(map).bindPopup("Serbia");
+        L.marker([14.4974, 14.4524]).addTo(map).bindPopup("Senegal");
+    </script>
+</body>
+
+</html>
