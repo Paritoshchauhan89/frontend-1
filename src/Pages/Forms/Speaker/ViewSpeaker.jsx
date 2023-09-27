@@ -2,11 +2,9 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import {getSpeakers, deleteSpeaker}  from '../../../api/Api';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 const ViewSpeaker = () => {
 
-const navigate = useNavigate();
   const [speakers, setSpeakers]= useState ([]);
 
   useEffect(()=>{
@@ -28,7 +26,7 @@ getAllSpeakers();
   return (
     <>
     <div className="mt-4">
-<table className="table" style={{overflow:"scroll"}} >
+<table className="table table-fixed">
   <thead>
     <tr>
       <th scope="col">ID</th>

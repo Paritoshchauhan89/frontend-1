@@ -29,12 +29,12 @@ const ViewNews = () => {
   return (
     <>
     <div className="mt-4">
-<table className="table" style={{overflow:"scroll"}} >
+<table className="table table-fixed" style={{ textAlign:'justify'}} >
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Title</th>
-      <th scope="col">Image  url</th>
+      <th scope="col" >ID</th>
+      <th scope="col ">Title</th>
+      <th scope="col ">Image  url</th>
       <th scope="col">Key Points</th>
       <th scope="col">decription1</th>
       <th scope="col">description2</th>
@@ -43,10 +43,10 @@ const ViewNews = () => {
       <th scopoe="col">Delete</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody style={{overflow:'auto'}}>
 {
   newss.map(news=>(
-    <tr key={news._id}>
+    <tr  key={news._id} >
       <td>{news._id}</td>
       <td>{news.title}</td>
       <td>{news.image}</td>

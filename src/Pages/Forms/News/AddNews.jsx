@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import {addNews} from '../../../api/Api'
 import ViewNews from "./ViewNews";
@@ -25,11 +23,11 @@ const AddNews = () => {
               setNews({...news,[e.target.name]:e.target.value});
           }
       
+        
           const addNewsDetails = async()=>{
-             await addNews(news);
-      
-      navigate('*');
-          }
+            await addNews(news);
+           navigate('/add-news');
+         }
   return (
     <>
 
@@ -48,7 +46,7 @@ const AddNews = () => {
             </div>
             <div className="col-md-4">
               <label htmlFor="validationCustom02" className="form-label">Image Url</label>
-              <input type="url" className="form-control" id="validationCustom02" placeholder="Enter Image url" required onChange={(e) => onValueChange(e)} name='image' />
+              <input type="text" className="form-control" id="validationCustom02" placeholder="Enter Image url" required onChange={(e) => onValueChange(e)} name='image' />
 
             </div>
             <div className="col-md-2">

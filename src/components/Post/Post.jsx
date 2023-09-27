@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import {getNewss, getNews}  from '../../api/Api';
+import {getNewss}  from '../../api/Api';
 import { Link } from 'react-router-dom';
 
 const Post = () => {
@@ -17,8 +17,8 @@ const Post = () => {
     setNewss(response.data);
  
    }
-
-
+ 
+  
  
   return (
     <>

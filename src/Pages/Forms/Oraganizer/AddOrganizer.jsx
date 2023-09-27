@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { addOrganizer } from '../../../api/Api' 
-import { Link, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import Vieworganizer from './ViewOrganizer'
 import Sidebar from '../../../components/Sidebar/Sidebar'
 
@@ -36,8 +36,7 @@ const AddOrganizer = () => {
   
       const addOrganizerDetails = async()=>{
          await addOrganizer(organizer);
-  
-  navigate('/add-organizer');
+        navigate('/add-organizer');
       }
   return (
     <>

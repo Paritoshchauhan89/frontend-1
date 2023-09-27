@@ -46,7 +46,7 @@ navigate('/add-sponser');
   <div className="col-md-4">
     <label htmlFor="validationCustom01" className="form-label">Full Name</label>
     <input type="text" className="form-control" id="validationCustom01" placeholder="Enter Full Name" required 
-    onChange={(e)=>onValueChange(e)} name='sponserfullname'
+    onChange={(e)=>onValueChange(e)} name='sponserfullname' 
     />
   
   </div>

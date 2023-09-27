@@ -1,9 +1,9 @@
-import {useState,useEffect} from 'react'
+import {useState, useEffect } from 'react'
 import {editNews,   getNews } from '../../../api/Api' 
 import {useNavigate, useParams} from 'react-router-dom';
 import Sidebar from '../../../components/Sidebar/Sidebar';
 
-const AddNews = () => {
+const EditNews = () => {
 
     const dafaultValue = {
 
@@ -15,36 +15,34 @@ const AddNews = () => {
       }
     
        
-    const [news,setNews]=useState(dafaultValue);
-    const navigate = useNavigate();
-    
-    const {id} = useParams();
-    
-    useEffect(()=>{
-        loadNewsDetails();
-    },[])
-    
-    const loadNewsDetails= async()=>{
-    const response = await  getNews(id);
-    setNews(response.data);
-
-    
-    }
-    
+      const [news,setNews]=useState(dafaultValue);
+      const navigate = useNavigate();
       
-    
-    
-    // form value
-        const onValueChange=(e)=>{
-            setNews({...news,[e.target.name]:e.target.value});
-        }
-    
-        const editnewsDetails = async()=>{
-           await editNews(news,id);
-         
+      const {id} = useParams();
+      
+      useEffect(()=>{
+      loadNewsDetails();
+    },[])
+      
+      const loadNewsDetails= async()=>{
+      const response = await  getNews(id);
+      setNews(response.data);
+      }
+      
         
-    
-        }
+      
+      
+      // form value
+          const onValueChange=(e)=>{
+              setNews({...news,[e.target.name]:e.target.value});
+          }
+      
+          const editnewsDetails = async()=>{
+             await editNews(news,id);
+             navigate('/add-news');
+      
+      
+          }
   return (
     <>
 
@@ -63,7 +61,7 @@ const AddNews = () => {
             </div>
             <div className="col-md-4">
               <label htmlFor="validationCustom02" className="form-label">Image Url</label>
-              <input type="url" className="form-control" id="validationCustom02" placeholder="Enter Image url" required onChange={(e) => onValueChange(e)} name='image' value={news.image}/>
+              <input type="text" className="form-control" id="validationCustom02" placeholder="Enter Image url" required onChange={(e) => onValueChange(e)} name='image' value={news.image}/>
 
             </div>
             <div className="col-md-2">
@@ -96,4 +94,4 @@ const AddNews = () => {
   )
 }
 
-export default AddNews
+export default EditNews

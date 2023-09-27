@@ -59,7 +59,7 @@ const Cards = () => {
         )}
         
 <div className="col-md-4 mt-2 ">
-<Link to='/events'>
+<Link to='/all-sponsers'>
 
 <div className="news-card-4 text-center"><img src={image4} className="img img-responsive" alt='News' />
   <div className="profile-content"> <Link to='/events'><h4>Sponsers</h4></Link>

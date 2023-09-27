@@ -1,6 +1,4 @@
-import React,{useEffect, useState} from 'react'
-import './Login.css'
-import { Link } from 'react-router-dom'
+import React,{ useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { URL } from '../../api/Api'
@@ -73,7 +71,6 @@ const Login = () => {
                 <div className="d-flex justify-content-center">
                   <button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >Login</button>
                 </div>
-                {/* <p className="text-center text-muted mt-5 mb-0">Have already an account? <Link to="/register" className="fw-bold text-body"><u>Register here</u></Link></p> */}
               </form>
             </div>
           </div>

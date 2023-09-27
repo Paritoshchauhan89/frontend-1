@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
@@ -13,7 +13,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   //state
-  const [value, setValue] = useState();
+  // const [value, setValue] = useState();
 
   //logout
   const handleLogout = () => {
@@ -86,9 +86,7 @@ const Navbar = () => {
                  </li>
                )}
               
-              {/* <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/register"><span className='btn btn-dark' style={{width:80}} >Register</span></Link>
-              </li> */}
+         
              
             </ul>
 
