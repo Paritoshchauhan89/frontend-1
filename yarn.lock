@@ -3257,6 +3257,7 @@ client@./:
     react "^18.2.0"
     react-dom "^18.2.0"
     react-fast-marquee "^1.6.1"
+    react-hot-toast "^2.4.1"
     react-redux "^8.1.2"
     react-router-dom "^6.16.0"
     react-scripts "5.0.1"
@@ -6658,6 +6659,11 @@ multicast-dns@^7.2.5:
   dependencies:
     dns-packet "^5.2.2"
     thunky "^1.0.2"
+
+multiselect-react-dropdown@^2.0.25:
+  version "2.0.25"
+  resolved "https://registry.yarnpkg.com/multiselect-react-dropdown/-/multiselect-react-dropdown-2.0.25.tgz#0c8d16f20d78023d5be2f3af4f15a4a164b6b427"
+  integrity sha512-z8kUSyBNOuV7vn4Dk35snzXWtIfTdSEEXhgDdLMvOmR+xJFx35vc1voUlSuOvrk3khb+hXC219Qs9szOvNm25Q==
 
 mz@^2.7.0:
   version "2.7.0"

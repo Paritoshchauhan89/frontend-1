@@ -31,6 +31,7 @@ const Sidebar = () => {
         Add sponser
       </Link>
     </li>
+    
     <li className="nav-item mt-2 mb-2">
       <Link to="/dashboard/add-organizer" className="nav-link active" aria-current="page">
         Add Organizer

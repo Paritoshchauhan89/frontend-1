@@ -14,10 +14,10 @@ const Home = () => {
     <Navbar/>
   <div className="row g-3">
         <Slider />
-        <div className="col-md-9 div123 m-1">
+        <div className="col-md-12 div123 m-1">
           <Cards/>
         </div>
-        <div className="col-md-4">
+        {/* <div className="col-md-4">
           <div className="position-sticky" style={{ top: '2rem' }}>
             
             <div>
@@ -29,7 +29,7 @@ const Home = () => {
 
        
           </div>
-        </div>
+        </div> */}
         
         {/* <Gallery/> */}
         {/* <Testinomial/> */}

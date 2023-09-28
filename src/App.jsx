@@ -38,6 +38,7 @@ import Subscribe from './Pages/Forms/Subscribe/Subscribe-view';
 import AddNews from './Pages/Forms/News/AddNews';
 import EditNews from './Pages/Forms/News/EditNews';
 import SponserDetaiil from './Pages/Sponsers/Sponserdetail/SponserDetaiil';
+import AddVenue from './Pages/Forms/venue/AddVenue';
 
 const App = () => {
 
@@ -67,8 +68,7 @@ const App = () => {
         <Route path='/organizer-detail' element={<Organizerdetail/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/services-detail' element={<Services1/>}/>
-<Route path='/login'element={<Login/>}/>
-<Route path='/add-conference' element={<AddConference/>}/>
+
 
 {/*  sponser forms */}
 <Route path='/dashboard/add-sponser' element={<SponserForm/>}/>
@@ -100,11 +100,17 @@ const App = () => {
 <Route path='/dashboard/detail-news/:id' element={<Singleblog/>}/>
        
        
-        
+       {/* user register /login  */}
 <Route path='/register'element={<Register/>}/>
         
+<Route path='/login'element={<Login/>}/>
 
 
+{/* conference section */}
+<Route path='/dashboard/add-conference' element={<AddConference/>}/>
+
+{/* venue section */}
+<Route path='/dashboard/add-venue' element={<AddVenue/>}/>
 
     </Routes>
     
