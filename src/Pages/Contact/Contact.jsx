@@ -1,30 +1,39 @@
-import React, {useRef} from 'react'
-import { useState } from 'react';
+import React, {useRef, useState} from 'react'
+import { addContact } from '../../api/Api' 
+import {  useNavigate } from 'react-router-dom'
 import './contact.css'
 import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser';
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
 
 const Contact = () => {
 
-  const [isMessageSent, setMessageSent] = useState('true');
 
- 
-  const notify = () => {
-    const messageSent = isMessageSent; 
-    if (messageSent) {
-      setMessageSent(true);
-      toast.success('Message sent successfully');
-    } else {
-      setMessageSent(false);
-      toast.error('Message not sent');
-    }
-  };
- 
-         
+
+  const dafaultValue={
+    user_name:'',
+    user_email:'',
+    subject:'',
+    message:'',
+    
+}
+
+const [contact,setContact]=useState(dafaultValue);
+const navigate = useNavigate();
+
+// form value
+const onValueChange=(e)=>{
+   setContact({...contact,[e.target.name]:e.target.value});
+}
+
+const addContactDetails = async()=>{
+  await addContact(contact);
+
+navigate('/contact');
+}
+
 
   const form  = useRef()
 
@@ -80,24 +89,23 @@ const Contact = () => {
         </div>
       </div>
       <div className="form mt-5">
-        <form ref={form}  onSubmit={sendEmail} className="php-email-form">
+        <form ref={form}  onSubmit={sendEmail} className="php-email-form" role='form'>
           <div className="row">
             <div className="form-group col-md-6">
-              <input type="text" name="user_name" className="form-control" id="name" placeholder="Your Name" required />
+              <input type="text" className="form-control"  placeholder="Your Name" required onChange={(e)=>onValueChange(e)}  name="user_name" />
             </div>
             <div className="form-group col-md-6">
-              <input type="email" className="form-control" name="user_email" id="email" placeholder="Your Email" required />
+              <input type="email" className="form-control"   placeholder="Your Email" required onChange={(e)=>onValueChange(e)} name="user_email" />
             </div>
           
           <div className="form-group">
-            <input type="text" className="form-control" name="subject" id="subject" placeholder="Subject" required />
+            <input type="text" className="form-control"   placeholder="Subject" required  onChange={(e)=>onValueChange(e)} name="subject"/>
           </div>
           <div className="form-group">
-            <textarea className="form-control" name="message" rows={5} placeholder="Message" required defaultValue={""} />
+            <textarea className="form-control" rows={5} placeholder="Message" required  onChange={(e)=>onValueChange(e)}  name="message"  />
           </div>
           <div className="my-3">
-          <div className="text-center"><button className='btn btn-dark' type="submit" value="Send" onChange={notify}>Send Message</button></div>
-          <ToastContainer />
+          <div className="text-center"><button className='btn btn-dark' type='submit'  onClick={()=> addContactDetails()}>Send Message</button></div>
             </div>
             </div>
         </form>

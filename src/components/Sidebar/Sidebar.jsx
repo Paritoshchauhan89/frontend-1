@@ -80,11 +80,7 @@ const Sidebar = () => {
         Add Faq
       </Link>
     </li>
-    <li className="nav-item mt-2 mb-2">
-      <Link to="/dashboard/all-subscriber" className="nav-link active" aria-current="page">
-        All Subscribers
-      </Link>
-    </li>
+  
 
   
   </ul>

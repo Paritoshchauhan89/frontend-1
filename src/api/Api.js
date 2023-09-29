@@ -185,26 +185,6 @@ export const deleteTestnomial = async (id) => {
 }
 
 
-// subscriber section
-
-export const addSubscriber = async (data) => {
-
-    try {
-        return await axios.post(`${URL}/`, data)
-    } catch (error) {
-        console.log('Error while adding subscriber Api ', error);    
-    }
-}
-
-
-export const getSubscribes = async () => {
-    try {
-        return await axios.get(`${URL}/all-subscribers`);
-
-    } catch (error) {
-        console.log('Error while getting  subscribers api', error);
-    }
-}
 
 
 
@@ -254,3 +234,172 @@ export const deleteNews = async (id) => {
 
     }
 }
+
+
+
+
+
+// gallery section
+
+
+
+export const addGallery = async (data) => {
+
+    try {
+        return await axios.post(`${URL}/add-gallery`, data)
+    } catch (error) {
+        console.log('Error while adding gallery Api ', error);    
+    }
+}
+
+
+export const getGallerys = async () => {
+    try {
+        return await axios.get(`${URL}/all-gallerys`);
+
+    } catch (error) {
+        console.log('Error while getting gallery api', error);
+    }
+}
+
+export const getGallery = async (id) => {
+    try {
+        return await axios.get(`${URL}/gallery${id}`);
+    } catch (error) {
+        console.log('Error while getting gallery api', error);
+    }
+}
+
+export const editGallery = async (gallery, id) => {
+    try {
+        return await axios.put(`${URL}/gallery${id}`, gallery);
+    } catch (error) {
+        console.log('Error while getting gallery api', error);
+    }
+}
+
+
+export const deleteGallery = async (id) => {
+
+    try {
+        return await axios.delete(`${URL}/gallery${id}`);
+    } catch (error) {
+        console.log('Error while deleting gallery api', error);
+
+    }
+}
+
+
+
+
+// faq section
+
+
+export const addFaq = async (data) => {
+
+    try {
+        return await axios.post(`${URL}/add-faq`, data)
+    } catch (error) {
+        console.log('Error while adding faq Api ', error);    
+    }
+}
+
+
+export const getFaqs = async () => {
+    try {
+        return await axios.get(`${URL}/all-faqs`);
+
+    } catch (error) {
+        console.log('Error while getting faq api', error);
+    }
+}
+
+export const getFaq = async (id) => {
+    try {
+        return await axios.get(`${URL}/faq${id}`);
+    } catch (error) {
+        console.log('Error while getting faq api', error);
+    }
+}
+
+export const editFaq = async (sponser, id) => {
+    try {
+        return await axios.put(`${URL}/faq${id}`, sponser);
+    } catch (error) {
+        console.log('Error while getting speaker api', error);
+    }
+}
+
+
+export const deleteFaq = async (id) => {
+
+    try {
+        return await axios.delete(`${URL}/faq${id}`);
+    } catch (error) {
+        console.log('Error while deleting faq api', error);
+
+    }
+}
+
+
+// contact section
+
+
+export const addContact = async (data) => {
+
+    try {
+        return await axios.post(`${URL}/contact`, data)
+    } catch (error) {
+        console.log('Error while adding contact Api ', error);    
+    }
+}
+
+
+export const getContacts = async () => {
+    try {
+        return await axios.get(`${URL}/all-contacts`);
+
+    } catch (error) {
+        console.log('Error while getting contact api', error);
+    }
+}
+
+
+
+
+
+
+export const deleteContact = async (id) => {
+
+    try {
+        return await axios.delete(`${URL}/contact${id}`);
+    } catch (error) {
+        console.log('Error while deleting contact api', error);
+
+    }
+}
+
+
+
+// subscribe section 
+
+
+
+export const addSubscriber = async (data) => {
+
+    try {
+        return await axios.post(`${URL}/`, data)
+    } catch (error) {
+        console.log('Error while adding subscribe Api ', error);    
+    }
+}
+
+export const getSubscribers = async () => {
+    try {
+        return await axios.get(`${URL}/all-subscribers`);
+
+    } catch (error) {
+        console.log('Error while getting subscribes api', error);
+    }
+}
+

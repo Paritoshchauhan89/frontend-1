@@ -1,7 +1,22 @@
 import React from 'react'
-import './gallery.css'
+import { useEffect, useState } from 'react';
+import {getGallerys}  from '../../api/Api';
 
 const Gallery = () => {
+
+
+  const [gallerys, setGallerys]= useState ([]);
+
+  useEffect(()=>{
+getAllGallerys();
+  },[]);
+
+  const getAllGallerys = async()=>{
+    let response =  await getGallerys();
+    setGallerys(response.data);
+ 
+   }
+
   return (
     <>
 <div className="container">
@@ -30,49 +45,27 @@ const Gallery = () => {
         </div>
       </div>
     </div>
-    <div className="carousel-item">
+    {
+      gallerys.map(gallery=>(
+        <div className="carousel-item">
       <div className="card-wrapper container-sm d-flex   justify-content-around">
-        <div className="card  " style={{width: '18rem'}}>
-          <img src="https://bootstrapmade.com/demo/templates/TheEvent/assets/img/gallery/8.jpg" className="card-img-top" alt="..." />
+       {
+        gallerys.map(gallery=>(
+          <div className="card" style={{width: '18rem'}}>
+          <img src={gallery.galleryimage} className="card-img-top" alt="..." />
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-          </div>
-        </div><div className="card" style={{width: '18rem'}}>
-          <img src="https://bootstrapmade.com/demo/templates/TheEvent/assets/img/gallery/8.jpg" className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">{gallery.gallerytitle}</h5>
+            <h6 className="card-description">{gallery.galleryratings}</h6>
           </div>
         </div>
-        <div className="card" style={{width: '18rem'}}>
-          <img src="https://bootstrapmade.com/demo/templates/TheEvent/assets/img/gallery/8.jpg" className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-          </div>
-        </div>
+        ))
+       }
+       
       </div>
     </div>
-    <div className="carousel-item">
-      <div className="card-wrapper container-sm d-flex  justify-content-around">
-        <div className="card " style={{width: '18rem'}}>
-          <img src="https://bootstrapmade.com/demo/templates/TheEvent/assets/img/gallery/8.jpg" className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-          </div>
-        </div>
-        <div className="card" style={{width: '18rem'}}>
-          <img src="https://source.unsplash.com/collection/190727/1600x900" className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-          </div>
-        </div>
-        <div className="card" style={{width: '18rem'}}>
-          <img src="https://source.unsplash.com/collection/190727/1600x900" className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-          </div>
-        </div>
-      </div>
-    </div>
+      ))
+    }
+   
     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
       <span className="carousel-control-prev-icon" aria-hidden="true" />
       <span className="visually-hidden">Previous</span>

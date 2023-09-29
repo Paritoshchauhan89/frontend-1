@@ -8,7 +8,7 @@ import Services from './Pages/Services/Services';
 import Faq from './Pages/Faq/Faq';
 import Singleblog from './Pages/Blog/SingleBlog/Singleblog';
 import BlogList from './Pages/Blog/BlogList/BlogList';
-import Speakers from './Pages/Speakers/Speakers';
+import Speakers from './Pages/Speakers/Speakers'
 import SpeakerDetaiil from './Pages/Speakers/Speakerdetail/SpeakerDetaiil';
 import Venue from './Pages/Venue/Venue';
 import Terms from './Pages/Terms/Terms';
@@ -34,14 +34,19 @@ import EditOrganizer from './Pages/Forms/Oraganizer/EditOrganizer';
 import ViewOrganizer from './Pages/Forms/Oraganizer/ViewOrganizer';
 import Feedback from './Pages/Testnomialfeedback/Feedback';
 import ViewTestnomial from './Pages/Testnomialfeedback/ViewFeedback';
-import Subscribe from './Pages/Forms/Subscribe/Subscribe-view';
 import AddNews from './Pages/Forms/News/AddNews';
 import EditNews from './Pages/Forms/News/EditNews';
 import SponserDetaiil from './Pages/Sponsers/Sponserdetail/SponserDetaiil';
 import AddVenue from './Pages/Forms/venue/AddVenue';
+import AddGallery from './Pages/Forms/Gallery/AddGallery';
+import EditGallery from './Pages/Forms/Gallery/EditGallery';
+import AddFaq from './Pages/Forms/Faq/AddFaq';
+import EditFaq from './Pages/Forms/Faq/EditFaq';
+import ViewContact from './Pages/Forms/contact/ViewContact';
+import ViewSubscribe from './Pages/Forms/Subscribe/ViewSubscribe';
+import ViewUsers from './Pages/Forms/All user/ViewUsers';
 
 const App = () => {
-
 
   return (
     <>
@@ -90,8 +95,7 @@ const App = () => {
         <Route path='/dashboard/view-testnomial' element={<ViewTestnomial/>}/>
 
 
-{/*   subscriber  */}
-<Route path='/dashboard/all-subscribers' element={<Subscribe/>}/>
+
 
 
 {/* news section */}
@@ -104,6 +108,7 @@ const App = () => {
 <Route path='/register'element={<Register/>}/>
         
 <Route path='/login'element={<Login/>}/>
+<Route path='/dashboard/all-users'element={<ViewUsers/>}/>
 
 
 {/* conference section */}
@@ -111,6 +116,28 @@ const App = () => {
 
 {/* venue section */}
 <Route path='/dashboard/add-venue' element={<AddVenue/>}/>
+
+{/* Gallery section */}
+
+<Route path='/dashboard/add-gallery' element={<AddGallery/>}/>
+<Route path='/dashboard/edit-gallery/:id' element={<EditGallery/>}/>
+
+
+
+{/* faq section */}
+
+<Route path='/dashboard/add-faq' element={<AddFaq/>}/>
+<Route path='/dashboard/edit-faq/:id' element={<EditFaq/>}/>
+
+
+{/* contact data */}
+
+<Route path='/dashboard/all-contacts/' element={<ViewContact/>}/>
+
+
+{/* subscribe data */}
+<Route path='/dashboard/all-subscribers/' element={<ViewSubscribe/>}/>
+
 
     </Routes>
     
