@@ -1,6 +1,6 @@
 import {useState,useEffect} from 'react'
 import {editSponser,   getSponser } from '../../../api/Api' 
-import {useNavigate, useParams,Navigate} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import Sidebar from '../../../components/Sidebar/Sidebar';
 
 const  EditSponser = () => {

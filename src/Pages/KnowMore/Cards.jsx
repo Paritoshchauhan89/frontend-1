@@ -62,7 +62,7 @@ const Cards = () => {
 <Link to='/all-sponsers'>
 
 <div className="news-card-4 text-center"><img src={image4} className="img img-responsive" alt='News' />
-  <div className="profile-content"> <Link to='/events'><h4>Sponsers</h4></Link>
+  <div className="profile-content"><h4>Sponsers</h4>
     <div className="profile-description">Beyond Conferencing</div>
     <div className="row">
       <div className="col-xs-4">

@@ -38,7 +38,7 @@ const ViewContact = () => {
       <th scope="col">Email </th>
       <th scope='col'>Subject</th>
       <th scopoe="col">Message</th>
-      <th scopoe="col">Entry Time</th>
+      <th scopoe="col">Entry Date</th>
       <th scopoe="col">Delete</th>
     </tr>
   </thead>
@@ -51,8 +51,7 @@ const ViewContact = () => {
       <td>{contact.user_email}</td>
       <td>{contact.subject}</td>
       <td>{contact.message}</td>
-      <td>{contact.createdAt}</td>
-      
+      <td>{new Date(contact.createdAt).toDateString()}</td>
       
       <td><button type='button' className='btn btn-danger' onClick={()=>deleteContactDetails(contact._id)}>Delete</button></td>
       </tr>

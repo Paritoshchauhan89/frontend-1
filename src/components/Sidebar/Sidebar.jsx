@@ -1,7 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
+import {  useDispatch } from "react-redux";
+import { authActions } from "../../Pages/redux/store";
 
 const Sidebar = () => {
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    try {
+      dispatch(authActions.logout());
+      alert("Logout Successfully");
+      navigate("/login");
+      localStorage.clear();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
      <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sticky" style={{width: 280, height:'auto'}}>
@@ -19,6 +36,11 @@ const Sidebar = () => {
     <li className="nav-item mt-2">
       <Link to="/" className="nav-link active" aria-current="page">
         Home
+      </Link>
+    </li>
+    <li className="nav-item mt-2">
+      <Link to="/dashboard/upload-media" className="nav-link active" aria-current="page">
+          Media
       </Link>
     </li>
     <li className="nav-item mt-2">
@@ -87,14 +109,14 @@ const Sidebar = () => {
   <hr />
   <div className="dropdown">
     <Link to="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="https://github.com/mdo.png" alt width={32} height={32} className="rounded-circle me-2" />
-      <strong>mdo</strong>
+      {/* <img src="https://github.com/mdo.png" alt width={32} height={32} className="rounded-circle me-2" /> */}
+      <strong>User</strong>
     </Link>
     <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
       <li><Link className="dropdown-item" to="#">Settings</Link></li>
       <li><Link className="dropdown-item" to="#">Profile</Link></li>
       <li><hr className="dropdown-divider" /></li>
-      <li><Link className="dropdown-item" to="#">Sign out</Link></li>
+      <li><Link className="dropdown-item" to="/login" onClick={handleLogout}>Sign out</Link></li>
     </ul>
   </div>
 </div>

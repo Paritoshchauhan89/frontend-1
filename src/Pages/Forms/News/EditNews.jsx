@@ -1,6 +1,6 @@
 import {useState, useEffect } from 'react'
 import {editNews,   getNews } from '../../../api/Api' 
-import {useNavigate, useParams} from 'react-router-dom';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 import Sidebar from '../../../components/Sidebar/Sidebar';
 
 const EditNews = () => {
@@ -81,6 +81,11 @@ const EditNews = () => {
           
             <div className="col-12">
               <button className="btn btn-primary" type="submit" onClick={() => editnewsDetails()}>Submit form</button>
+            </div>
+            <div className="col-12">
+             <Link to='/dashboard/add-news' >
+             <button className="btn btn-outline-primary" type="button" >Add News</button>
+             </Link>
             </div>
           </form>
     

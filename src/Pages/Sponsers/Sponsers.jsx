@@ -33,7 +33,7 @@ getAllSponsers();
          <div className="speaker aos-init aos-animate" data-aos="fade-up" data-aos-delay={100}>
            <img src={sponser.sponserimage} alt="Speaker 1" className="img-fluid" />
            <div className="details">
-             <h3><Link to="/sponser-detail">{sponser.sponserfullname}</Link></h3>
+             <h3><Link to={`/detail-sponser/${sponser._id}`}>{sponser.sponserfullname}</Link></h3>
              <p>{sponser.sponseremail}</p>
              <p>{sponser.sponsercountry}</p>
              {/* <div className="social">

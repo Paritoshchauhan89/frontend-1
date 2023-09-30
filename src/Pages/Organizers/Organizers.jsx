@@ -38,7 +38,7 @@ getAllOrganizers();
      {
       organizers.map(Organizer=>(
         <div className="col-xl-3 col-sm-6 mb-5 ">
-        <div className="bg-white rounded shadow-sm py-5 px-4 shadow-lg p-3 mb-5 bg-body-tertiary rounded"><Link to='/organizer-detail'><img src={Organizer.organizerimage} alt='logo' width={120} className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" /></Link>
+        <div className="bg-white rounded shadow-sm py-5 px-4 shadow-lg p-3 mb-5 bg-body-tertiary rounded"><Link to={`/organizer-detail/${Organizer._id}`}><img src={Organizer.organizerimage} alt='logo' width={120} className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" /></Link>
           <h5 className="mb-0">{Organizer.organizerfullname}</h5><span className="small text-uppercase text-muted">{Organizer.designation}</span>
           <ul className="social mb-0 list-inline mt-3">
             <li className="list-inline-item"><Link href="#" className="social-link"><i className="bi bi-facebook" /></Link></li>

@@ -1,9 +1,27 @@
-import React from 'react'
+import React,{ useEffect, useState } from 'react'
 import './organizerdetail.css'
 import Navbar from '../../../components/Header/Navbar'
 import Footer from '../../../components/Footer/Footer'
+import {getOrganizer}  from '../../../api/Api';
+import {useParams} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Organizerdetail = () => {
+
+   
+  const [organizer,setOrganizer]=useState({});
+  
+  const {id} = useParams();
+  
+  useEffect(()=>{
+  loadorganizerDetails();
+  },[])
+  
+  const loadorganizerDetails= async()=>{
+  const response = await  getOrganizer(id);
+  setOrganizer(response.data);
+  }
+  
   return (
     <>
     <Navbar/>
@@ -11,25 +29,24 @@ const Organizerdetail = () => {
   <div className="container">
     <div className="section-header text-center mb-4">
       <h2>Organizer Details</h2>
-      <p className='text-center'>Praesentium ut qui possimus sapiente nulla.</p>
+     
     </div>
     <div className="row">
     <div className="col-md-6">
         <div className="details">
-          <h2>Brenden Legros</h2>
+          <h2>{organizer.organizerfullname}</h2>
+          <h5>{organizer.organizeremail}</h5>
           <div className="social">
             <a href><i className="bi bi-twitter" /></a>
             <a href><i className="bi bi-facebook" /></a>
             <a href><i className="bi bi-instagram" /></a>
-            <a href><i className="bi bi-linkedin" /></a>
+            <Link to={organizer.profileurl} ><i className="bi bi-linkedin" /></Link>
           </div>
-          <p>Voluptatem perferendis sed assumenda voluptatibus. Laudantium molestiae sint. Doloremque odio dolore dolore sit. Quae labore alias ea omnis ex expedita sapiente molestias atque. Optio voluptas et.</p>
-          <p>Aboriosam inventore dolorem inventore nam est esse. Aperiam voluptatem nisi molestias laborum ut. Porro dignissimos eum. Tempore dolores minus unde est voluptatum incidunt ut aperiam.</p>
-          <p>Et dolore blanditiis officiis non quod id possimus. Optio non commodi alias sint culpa sapiente nihil ipsa magnam. Qui eum alias provident omnis incidunt aut. Eius et officia corrupti omnis error vel quia omnis velit. In qui debitis autem aperiam voluptates unde sunt et facilis.</p>
+         <p>{organizer.bio}</p>
         </div>
       </div>
       <div className="col-md-6">
-        <img src="https://bootstrapmade.com/demo/templates/TheEvent/assets/img/speakers/1.jpg" alt="Speaker 1" className="img-fluid" />
+        <img src={organizer.organizerimage} alt="Speaker 1" className="img-fluid" />
       </div>
       
     </div>

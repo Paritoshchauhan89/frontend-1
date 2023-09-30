@@ -1,28 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState }  from 'react'
 import comment1 from '../../../api/Assets/img/person-5.jpg'
 import comment2 from '../../../api/Assets/img/person-2.jpg'
 import reply1 from '../../../api/Assets/img/person-4.jpg'
 import reply2 from '../../../api/Assets/img/person-3.jpg'
 import Navbar from '../../../components/Header/Navbar'
 import Footer from '../../../components/Footer/Footer'
-import { useEffect, useState } from 'react';
-import {getNewss }  from '../../../api/Api';
+import {getNews }  from '../../../api/Api';
+import {useParams} from 'react-router-dom'
 
 const Singleblog = () => {
 
 
-  const [newss, setNewss]= useState ([]);
-
-
+   
+  const [news,setNews]=useState({});
+  
+  const {id} = useParams();
+  
   useEffect(()=>{
-    getAllNewss();
-  },[]);
-
-  const getAllNewss = async(id)=>{
-    let response =  await getNewss(id);
-    setNewss(response.data);
+  loadNewsDetails();
+},[])
+  
+  const loadNewsDetails= async()=>{
+  const response = await  getNews(id);
+  setNews(response.data);
+  }
+  
+    
+  
+  
  
-   }
+  
+ 
+
   
 
   
@@ -33,8 +42,8 @@ const Singleblog = () => {
    <section className="single-post-content mx-4">
    <div className="row">
       <div className="col-md-12 post-content" data-aos="fade-up">
-       {newss.map((news)=>(
-         <div key={news._id} className="single-post">
+      
+         <div  className="single-post">
          <div className="post-meta"><span className="date">Time</span> <span className="mx-1">•</span> <span>Jul 5th '22</span></div>
          <h1 className="mb-5">{news.title}</h1>
          <p><span className="firstcharacter"></span>{news.description1}</p>
@@ -45,16 +54,8 @@ const Singleblog = () => {
         </figure>
     
          <p>{news.description2}</p>
-         {/* <figure className="my-4">
-           <img src={post1} alt='news' className="img-fluid" />
-           <figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, odit? </figcaption>
-         </figure> */}
-         {/* <p>Quis molestiae, dolorem consequuntur labore perferendis enim accusantium commodi optio, sequi magnam ad consectetur iste omnis! Voluptatibus, quia officia esse necessitatibus magnam tempore reprehenderit quo aspernatur! Assumenda, minus dolorem repellendus corporis corrupti quia temporibus repudiandae in. Sit rem aut, consectetur repudiandae perferendis nemo alias, iure ipsam omnis quam soluta, nobis animi quis aliquam blanditiis at. Dicta nemo vero sequi exercitationem.</p>
-         <p>Architecto ex id at illum aperiam corporis, quidem magnam doloribus non eligendi delectus laborum porro molestiae beatae eveniet dolor odit optio soluta dolores! Eaque odit a nihil recusandae, error repellendus debitis ex autem ab commodi, maiores officiis doloribus provident optio, architecto assumenda! Nihil cum laboriosam eos dolore aliquid perferendis amet doloremque quibusdam odio soluta vero odit, ipsa, quisquam quod nulla.</p>
-         <p>Consequuntur corrupti fugiat quod! Ducimus sequi nemo illo ad necessitatibus amet nobis corporis et quasi. Optio cum neque fuga. Ad excepturi magnam quisquam ex voluptatibus vitae aut nam quidem doloribus, architecto perspiciatis sit consequatur pariatur alias animi expedita quas? Et doloribus voluptatibus perferendis qui fugiat voluptatum autem facere aspernatur quidem quae assumenda iste, sit similique, necessitatibus laborum magni. Ea, dolores!</p>
-         <p>Possimus temporibus rerum illo quia repudiandae provident sed quas atque. Ipsam adipisci accusamus iste optio illo aliquam molestias? Voluptatibus, veniam recusandae facilis nobis perspiciatis rem similique, nisi ad explicabo ipsa voluptatum, inventore molestiae natus adipisci? Fuga delectus quia assumenda totam aspernatur. Nobis hic ea rem, quaerat voluptate vero illum laboriosam omnis aspernatur labore, natus ex iusto ducimus exercitationem a officia.</p> */}
        </div>
-       ))}
+     
         <div className="comments">
           <h5 className="comment-title py-4">2 Comments</h5>
           <div className="comment d-flex mb-4">

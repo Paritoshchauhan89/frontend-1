@@ -27,7 +27,7 @@ const Post = () => {
     <ul className="list-unstyled">
     
     <li>
-      <Link className="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-center py-3 link-body-emphasis text-decoration-none border" to={`/dashboard/detail-news/${news._id}`}>
+      <Link className="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-center py-3 link-body-emphasis text-decoration-none border" to={`/detail-news/${news._id}`}>
         <img src={news.image} width={100}  alt="blog" />
         <div className="col-lg-8 d-flex">
           <h6 className="mb-0">{news.title}</h6>

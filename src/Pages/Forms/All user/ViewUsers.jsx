@@ -4,7 +4,7 @@ import Sidebar from "../../../components/Sidebar/Sidebar";
 
 
 const ViewUser =()=> {
-  const url = "https://jsonplaceholder.typicode.com/users";
+  const url = "http://localhost:8000/all-users";
   const [data, setData] = useState([]);
 
   const fetchInfo = () => {

@@ -2,9 +2,27 @@ import React from 'react'
 import Navbar from '../../../components/Header/Navbar'
 import Footer from '../../../components/Footer/Footer'
 import '../Sponsers.css'
+import {useState,useEffect} from 'react'
+import {getSponser } from '../../../api/Api' 
+import {useNavigate, useParams} from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 
 const SponserDetaiil = () => {
+
+
+  const [sponser,setSponser]=useState({});
+
+const {id} = useParams();
+
+useEffect(()=>{
+loadSponserDetails();
+},[])
+
+const loadSponserDetails= async()=>{
+const response = await  getSponser(id);
+setSponser(response.data);
+}
   return (
     <>
     <Navbar/>
@@ -15,20 +33,20 @@ const SponserDetaiil = () => {
     </div>
     <div className="row">
       <div className="col-md-6">
-        <img src="https://bootstrapmade.com/demo/templates/TheEvent/assets/img/speakers/1.jpg" alt="Speaker 1" className="img-fluid" />
+        <img src={sponser.sponserimage} alt="Speaker 1" className="img-fluid" />
       </div>
       <div className="col-md-6">
         <div className="details">
-          <h2>Brenden Legros</h2>
+          <h2>{sponser.sponserfullname}</h2>
+          <h4>{sponser.sponseremail}</h4>
           <div className="social">
-            <a href><i className="bi bi-twitter" /></a>
-            <a href><i className="bi bi-facebook" /></a>
-            <a href><i className="bi bi-instagram" /></a>
-            <a href><i className="bi bi-linkedin" /></a>
+            <Link to=" "><i className="bi bi-twitter" /></Link>
+            <Link to=" "><i className="bi bi-facebook" /></Link>
+            <Link to=" "><i className="bi bi-instagram" /></Link>
+            <Link to=""><i className="bi bi-linkedin" /></Link>
           </div>
-          <p>Voluptatem perferendis sed assumenda voluptatibus. Laudantium molestiae sint. Doloremque odio dolore dolore sit. Quae labore alias ea omnis ex expedita sapiente molestias atque. Optio voluptas et.</p>
-          <p>Aboriosam inventore dolorem inventore nam est esse. Aperiam voluptatem nisi molestias laborum ut. Porro dignissimos eum. Tempore dolores minus unde est voluptatum incidunt ut aperiam.</p>
-          <p>Et dolore blanditiis officiis non quod id possimus. Optio non commodi alias sint culpa sapiente nihil ipsa magnam. Qui eum alias provident omnis incidunt aut. Eius et officia corrupti omnis error vel quia omnis velit. In qui debitis autem aperiam voluptates unde sunt et facilis.</p>
+          <span> <b>KeyPoints: </b>{sponser.sponserkeypoints}</span>
+         <p><b>About:</b> {sponser.sponserabout}</p>
         </div>
       </div>
     </div>

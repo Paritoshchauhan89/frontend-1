@@ -36,7 +36,7 @@ getAllSpeakers();
          <div className="speaker aos-init aos-animate" data-aos="fade-up" data-aos-delay={100}>
            <img src={speaker.speakerimage} alt="Speaker 1" className="img-fluid" />
            <div className="details">
-             <h3><Link to="/speaker-detail">{speaker.speakerfullname}</Link></h3>
+             <h3><Link to={`/speaker-detail/${speaker._id}`}>{speaker.speakerfullname}</Link></h3>
              <p>{speaker.designation}</p>
              <p>{speaker.speakercountry}</p>
              {/* <div className="social">

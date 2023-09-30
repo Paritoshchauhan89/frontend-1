@@ -45,6 +45,7 @@ import EditFaq from './Pages/Forms/Faq/EditFaq';
 import ViewContact from './Pages/Forms/contact/ViewContact';
 import ViewSubscribe from './Pages/Forms/Subscribe/ViewSubscribe';
 import ViewUsers from './Pages/Forms/All user/ViewUsers';
+import AddMedia from './Pages/Forms/Media/AddMedia';
 
 const App = () => {
 
@@ -60,7 +61,6 @@ const App = () => {
         <Route path='/all-sponsers' element={<Sponsers/>}/>
         <Route path='/faq' element={<Faq/>}/>
         <Route path='/blogs' element={<BlogList/>}/>
-        <Route path='/blogs/singleblog' element={<Singleblog/>}/>
         <Route path='/services' element={<Services/>}/>
         <Route path='/all-speakers' element={<Speakers/>}/>
         <Route path='/all-organizers' element={<Organizers/>}/>
@@ -68,9 +68,7 @@ const App = () => {
         <Route path='/Venue' element={<Venue/>}/>
         <Route path='/terms-and-conditions' element={<Terms/>}/>
         <Route path='/publication-management' element={<PublicManagement/>}/>
-        <Route path='/speaker-detail' element={<SpeakerDetaiil/>}/>
         <Route path='/sponser-detail' element={<SponserDetaiil/>}/>
-        <Route path='/organizer-detail' element={<Organizerdetail/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/services-detail' element={<Services1/>}/>
 
@@ -78,16 +76,19 @@ const App = () => {
 {/*  sponser forms */}
 <Route path='/dashboard/add-sponser' element={<SponserForm/>}/>
 <Route path='/dashboard/all-sponsers' element={<ViewSponser/>}/>
+<Route path='/detail-sponser/:id' element={<SponserDetaiil/>}/>
 <Route path='/dashboard/edit-sponser/:id' element={<EditSponser/>}/>
 
 {/* speaker form */}
 <Route path='/dashboard/add-speaker' element={<SpeakerForm/>}/>
 <Route path='/dashboard/all-speakers' element={<ViewSpeaker/>}/>
+<Route path='/speaker-detail/:id' element={<SpeakerDetaiil/>}/>
 <Route path='/dashboard/edit-speaker/:id' element={<EditSpeaker/>}/>
 
 {/* Organizer Form */}
 <Route path='dashboard/add-organizer' element={<AddOrganizer/>}/>
 <Route path='/dashboard/all-organizers' element={<ViewOrganizer/>}/>
+<Route path='/organizer-detail/:id' element={<Organizerdetail/>}/>
 <Route path='/dashboard/edit-organizer/:id' element={<EditOrganizer/>}/>
         
         {/* testnomial  feedback */}
@@ -101,7 +102,7 @@ const App = () => {
 {/* news section */}
 <Route path='/dashboard/add-news' element={<AddNews/>}/>
 <Route path='/dashboard/edit-news/:id' element={<EditNews/>}/>
-<Route path='/dashboard/detail-news/:id' element={<Singleblog/>}/>
+<Route path='/detail-news/:id' element={<Singleblog/>}/>
        
        
        {/* user register /login  */}
@@ -137,6 +138,10 @@ const App = () => {
 
 {/* subscribe data */}
 <Route path='/dashboard/all-subscribers/' element={<ViewSubscribe/>}/>
+
+
+{/* upload media */}
+<Route path='/dashboard/upload-media' element={<AddMedia/>}/>
 
 
     </Routes>
