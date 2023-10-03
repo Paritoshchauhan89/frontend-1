@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import './Navbar.css'
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../../Pages/redux/store";
+import logo from '../../api/Assets/img/stmconf..png';
 
 const Navbar = () => {
  
@@ -32,7 +33,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg  sticky-top bg-light shadow  bg-white ">
         <div className="container ">
           <Link className="navbar-brand" to="/">
-            <img src='https://stmconferences.com/wp-content/uploads/2023/03/stmconf..png' width={'150'} alt="logo" />
+            <img src={logo} width={'150'} alt="logo" />
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />

@@ -27,7 +27,7 @@ const Sidebar = () => {
     <span className="fs-4">Welcome</span>
   </Link>
   <hr />
-  <ul className="nav nav-pills flex-column mb-auto">
+  <ul className="nav nav-pills flex-column mb-auto ">
   <li className="nav-item mt-2">
       <Link to="/register" className="nav-link active" aria-current="page">
         Add User
@@ -36,6 +36,11 @@ const Sidebar = () => {
     <li className="nav-item mt-2">
       <Link to="/" className="nav-link active" aria-current="page">
         Home
+      </Link>
+    </li>
+    <li className="nav-item mt-2">
+      <Link to="/dashboard/all-enrollments" className="nav-link active" aria-current="page">
+        Enrollment
       </Link>
     </li>
     <li className="nav-item mt-2">

@@ -46,6 +46,9 @@ import ViewContact from './Pages/Forms/contact/ViewContact';
 import ViewSubscribe from './Pages/Forms/Subscribe/ViewSubscribe';
 import ViewUsers from './Pages/Forms/All user/ViewUsers';
 import AddMedia from './Pages/Forms/Media/AddMedia';
+import EditVenue from './Pages/Forms/venue/EditVenue';
+import Enroll from './Pages/Enrollment/Enroll';
+import ViewEnroll from './Pages/Forms/Enrollment/ViewEnroll';
 
 const App = () => {
 
@@ -140,8 +143,19 @@ const App = () => {
 <Route path='/dashboard/all-subscribers/' element={<ViewSubscribe/>}/>
 
 
+
+{/* venue section */}
+<Route path='/dashboard/edit-venue/:id' element={<EditVenue/>}/>
+
+
 {/* upload media */}
 <Route path='/dashboard/upload-media' element={<AddMedia/>}/>
+
+
+
+{/* enrollment form */}
+<Route path='/conference-enrollment' element={<Enroll/>}/>
+<Route path='/dashboard/all-enrollments' element={<ViewEnroll/>}/>
 
 
     </Routes>

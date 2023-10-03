@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const URL = 'https://stmconferencesapi.onrender.com'
-// export const URL = 'http://localhost:8000'
+// export const URL = 'https://stmconferencesapi.onrender.com'
+export const URL = 'http://localhost:8000'
 
 // sponser section
 export const addSponser = async (data) => {
@@ -366,9 +366,6 @@ export const getContacts = async () => {
 
 
 
-
-
-
 export const deleteContact = async (id) => {
 
     try {
@@ -403,3 +400,89 @@ export const getSubscribers = async () => {
     }
 }
 
+export const addVenue = async (data) => {
+
+    try {
+        return await axios.post(`${URL}/add-venue`, data)
+    } catch (error) {
+        console.log('Error while adding venue Api ', error);    
+    }
+}
+
+
+export const getVenues = async () => {
+    try {
+        return await axios.get(`${URL}/all-venues`);
+
+    } catch (error) {
+        console.log('Error while getting venue api', error);
+    }
+}
+
+export const getVenue = async (id) => {
+    try {
+        return await axios.get(`${URL}/venue${id}`);
+    } catch (error) {
+        console.log('Error while getting venue api', error);
+    }
+}
+
+export const editVenue = async (venue, id) => {
+    try {
+        return await axios.put(`${URL}/venue${id}`, venue);
+    } catch (error) {
+        console.log('Error while getting venue api', error);
+    }
+}
+
+
+export const deleteVenue = async (id) => {
+
+    try {
+        return await axios.delete(`${URL}/venue${id}`);
+    } catch (error) {
+        console.log('Error while deleting venue api', error);
+
+    }
+}
+
+// enroll section
+
+export const addEnroll = async (data) => {
+
+    try {
+        return await axios.post(`${URL}/conference-enrollment`, data)
+    } catch (error) {
+        console.log('Error while adding Enrollment Api ', error);    
+    }
+}
+
+
+
+export const getEnrolls = async () => {
+    try {
+        return await axios.get(`${URL}/all-enrollments`);
+
+    } catch (error) {
+        console.log('Error while getting enrollments api', error);
+    }
+}
+
+
+export const getEnroll = async (id) => {
+    try {
+        return await axios.get(`${URL}/enroll${id}`);
+    } catch (error) {
+        console.log('Error while getting enroll api', error);
+    }
+}
+
+export const deleteEnrolls = async (id) => {
+
+    try {
+        return await axios.delete(`${URL}/enroll${id}`);
+    } catch (error) {
+        console.log('Error while deleting enroll api', error);
+
+    }
+}

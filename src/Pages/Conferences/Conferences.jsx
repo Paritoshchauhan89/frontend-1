@@ -62,7 +62,7 @@ const Conferences = () => {
 
 
             <div className="d-flex justify-content-between">
-              <span className='mt-4 fw-semibold'>Last date of joining :</span><button type='button' className='btn btn-outline-primary' style={{ width: '150px' }}>Join Now</button>
+              <span className='mt-4 fw-semibold'>Last date of joining :</span><Link to='/conference-enrollment' ><button type='button' className='btn btn-outline-primary' style={{ width: '150px' }}>Join Now</button></Link>
             </div>
             <div className="d-flex justify-content-between">
               <span className='mt-4 fw-semibold'>Last date of Submission :</span><button type='button' className='btn btn-outline-success' style={{ width: '150px' }}>Submit</button>

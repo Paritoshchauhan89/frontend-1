@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Blog1 from '../../../api/Assets/img/post-landscape-3.jpg'
-import writer from '../../../api/Assets/img/person-2.jpg'
 import Navbar from '../../../components/Header/Navbar'
 import Footer from '../../../components/Footer/Footer'
 import { useEffect, useState } from 'react';

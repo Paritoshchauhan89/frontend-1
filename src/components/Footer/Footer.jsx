@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import recent1 from '../../api/Assets/img/post-landscape-4.jpg'
 import Subscribe from '../Subscribe/Subscribe'
 
 
@@ -30,7 +29,7 @@ const Footer = () => {
           <h3 className="footer-heading">Navigation</h3>
           <ul className="footer-links list-unstyled">
             <li><Link to="/venue"><i className="bi bi-chevron-right" /> Venue</Link></li>
-            <li><Link to="/conferences"><i className="bi bi-chevron-right" /> Conferences</Link></li>
+            <li><Link to="/all-conferences"><i className="bi bi-chevron-right" /> Conferences</Link></li>
             <li><Link to="/sponsers"><i className="bi bi-chevron-right" /> Sponsers</Link></li>
           </ul>
         </div>
@@ -39,10 +38,10 @@ const Footer = () => {
           <ul className="footer-links footer-blog-entry list-unstyled">
             <li>
               <Link to="/blog" className="d-flex align-items-center">
-                <img src={recent1} alt='logo' className="img-fluid me-3" />
+                <img src="https://thebalisun.com/wp-content/uploads/2021/03/Bali-To-Host-G20-Summit-In-2022-scaled.jpg" alt='logo' className="img-fluid me-3" />
                 <div>
                   <div className="post-meta d-block"><span className="date">Culture</span> <span className="mx-1">•</span> <span>Jul 5th '22</span></div>
-                  <span>5 Great Startup Tips for Female Founders</span>
+                  <span>INTERNATIONAL CONFERENCE ON RECENT TRENDS IN MECHANICAL ENGINEERING</span>
                 </div>
               </Link>
             </li>
