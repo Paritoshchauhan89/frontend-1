@@ -49,6 +49,7 @@ import AddMedia from './Pages/Forms/Media/AddMedia';
 import EditVenue from './Pages/Forms/venue/EditVenue';
 import Enroll from './Pages/Enrollment/Enroll';
 import ViewEnroll from './Pages/Forms/Enrollment/ViewEnroll';
+import EditConference from './Pages/Forms/Conference/EditConference';
 
 const App = () => {
 
@@ -117,6 +118,8 @@ const App = () => {
 
 {/* conference section */}
 <Route path='/dashboard/add-conference' element={<AddConference/>}/>
+<Route path='/dashboard/edit-conference/:id' element={<EditConference/>}/>
+
 
 {/* venue section */}
 <Route path='/dashboard/add-venue' element={<AddVenue/>}/>

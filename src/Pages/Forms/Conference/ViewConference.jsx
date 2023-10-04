@@ -1,27 +1,26 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import {getNewss, deleteNews}  from '../../../api/Api';
-import { Link} from 'react-router-dom';
+import {getConferences, deleteConference}  from '../../../api/Api';
+import { Link } from 'react-router-dom';
 
 const ViewConference = () => {
 
 
-  const [newss, setNewss]= useState ([]);
-
+  const [conferences, setConference]= useState ([]);
 
   useEffect(()=>{
-    getAllNewss();
+    getAllConferences();
   },[]);
 
-  const getAllNewss = async()=>{
-    let response =  await getNewss();
-    setNewss(response.data);
+  const getAllConferences = async()=>{
+    let response =  await getConferences();
+    setConference(response.data);
  
    }
-   const deleteNewsDetails=async(id)=>{
-    await deleteNews(id);
-    getAllNewss();
 
+   const deleteConferenceDetails=async(id)=>{
+    await deleteConference(id);
+    getAllConferences();
 
   }
   
@@ -29,36 +28,58 @@ const ViewConference = () => {
   return (
     <>
     <div className="mt-4">
-<table className="table table-fixed" style={{ textAlign:'justify'}} >
+<table className="table" style={{overflow:"scroll"}} >
   <thead>
     <tr>
-      <th scope="col" >ID</th>
-      <th scope="col ">Title</th>
-      <th scope="col ">Conference Image</th>
+      <th scope="col">ID</th>
+      <th scope="col">Conference Title</th>
       <th scope="col">Conference Start Date</th>
+      <th scope="col">Conference Start Time</th>
       <th scope="col">Conference End Date</th>
-      <th scope="col">decription1</th>
-      <th scope="col">description2</th>
-      
-      <th scope='col'>Update</th>
+      <th scope="col">Conference End Time</th>
+      <th scope="col">Conference Image</th>
+      <th scope="col">Sponsers Email</th>
+      <th scope="col">Speakers Email</th>
+      <th scope="col">Venue Name</th>
+      <th scope="col">Feedback Url</th>
+      <th scope="col">Description</th>
+      <th scope="col">Manuscript Submission Url</th>
+      <th scope='col'>Manuscript Submission Date</th>
+      <th scopoe="col">Manuscript End Date</th>
+      <th scopoe="col">Online & offline</th>
+      <th scopoe="col">Conference Key Points</th>
+      <th scopoe="col">Created Date</th>
+      <th scopoe="col">Edit</th>
       <th scopoe="col">Delete</th>
     </tr>
   </thead>
-  <tbody style={{overflow:'auto'}}>
+  <tbody>
 {
-  newss.map(news=>(
-    <tr  key={news._id} >
-      <td>{news._id}</td>
-      <td>{news.title}</td>
-      <td>{news.image}</td>
-      <td>{news.keypoints}</td>
-      <td>{news.description1}</td>
-      <td>{news.description2}</td>
-     
+  conferences.map(conference=>(
+    <tr key={conference._id}>
+      <td>{conference._id}</td>
+      <td>{conference.conferencetitle}</td>
+      <td>{new Date(conference.conferencestartdate).toDateString()}</td>
+      <td>{conference.conferencestarttime}</td>
+      <td>{new Date(conference.conferencestartdate).toDateString()}</td>
+      <td>{conference.conferenceendtime}</td>
+      <td>{conference.conferenceimage}</td>
+      <td>{conference.sponsersemail}</td>
+      <td>{conference.speakersemail}</td>
+      <td>{conference.venuename}</td>
+      <td>{conference.feedbackurl}</td>
+      <td>{conference.description}</td>
+      <td>{conference.manuscriptsubmissionurl}</td>
+      <td>{conference.manuscriptsubmissiondate}</td>
+      <td>{conference.manuscriptenddate}</td>
+      <td>{conference.onlineoffline}</td>
+      <td>{conference.conferencekeypoints}</td>
+      <td>{new Date(conference.createdAt).toDateString()}</td>
+      
       <td>
-      <Link to={`/dashboard/edit-news/${news._id}`}><button className='btn btn-primary' style={{marginRight:5}}>Edit</button></Link>
+      <Link to={`/dashboard/edit-conference/${conference._id}`}><button className='btn btn-primary' style={{marginRight:5}}>Edit</button></Link>
         </td>
-      <td><button type='button' className='btn btn-danger' onClick={()=>deleteNewsDetails(news._id)}>Delete</button></td>
+      <td><button type='button' className='btn btn-danger' onClick={()=>deleteConferenceDetails(conference._id)}>Delete</button></td>
       </tr>
   ))
 }

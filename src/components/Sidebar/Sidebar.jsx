@@ -34,6 +34,11 @@ const Sidebar = () => {
       </Link>
     </li>
     <li className="nav-item mt-2">
+      <Link to="/dashboard/all-users" className="nav-link active" aria-current="page">
+        All Users
+      </Link>
+    </li>
+    <li className="nav-item mt-2">
       <Link to="/" className="nav-link active" aria-current="page">
         Home
       </Link>

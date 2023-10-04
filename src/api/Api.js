@@ -486,3 +486,56 @@ export const deleteEnrolls = async (id) => {
 
     }
 }
+
+
+
+// conference section
+export const addConference = async (data) => {
+
+    try {
+        return await axios.post(`${URL}/add-conference`, data)
+    } catch (error) {
+        console.log('Error while adding conference Api ', error);    
+    }
+}
+
+
+
+export const getConferences = async () => {
+    try {
+        return await axios.get(`${URL}/all-conferences`);
+
+    } catch (error) {
+        console.log('Error while getting conference api', error);
+    }
+}
+
+export const getConference = async (id) => {
+    try {
+        return await axios.get(`${URL}/conference${id}`);
+    } catch (error) {
+        console.log('Error while getting conference api', error);
+    }
+}
+
+export const editConference = async (conference, id) => {
+    try {
+        return await axios.put(`${URL}/conference${id}`, conference);
+    } catch (error) {
+        console.log('Error while getting conference api', error);
+    }
+}
+
+
+export const deleteConference = async (id) => {
+
+    try {
+        return await axios.delete(`${URL}/conference${id}`);
+    } catch (error) {
+        console.log('Error while deleting conference api', error);
+
+    }
+}
+
+
+

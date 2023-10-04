@@ -1,13 +1,12 @@
 import React, { useState,useEffect } from 'react'
-import { addConference } from '../../../api/Api'
-import { useNavigate } from 'react-router-dom'
+import { editConference, getConference } from '../../../api/Api' 
+import {useNavigate, useParams} from 'react-router-dom';
 import {getSponsers}  from '../../../api/Api';
 import {getVenues}  from '../../../api/Api';
 import {getSpeakers}  from '../../../api/Api';
 import Sidebar from '../../../components/Sidebar/Sidebar'
-import ViewConference from './ViewConference';
 
-const AddConference = () => {
+const EditConference = () => {
 
 
 
@@ -54,9 +53,9 @@ getAllSponsers();
 
     conferencetitle: '',
     conferencestartdate: '',
-    conferencestarttime:'',
+    conferencestarttime: '',
     conferenceenddate: '',
-    conferenceendtime:'',
+    conferenceendtime: '',
     conferenceimage: '',
     sponsersemail: '',
     speakersemail: '',
@@ -69,20 +68,35 @@ getAllSponsers();
     onlineoffline:'',
     conferencekeypoints:'',
   }
-// const [options] =useState(data);
-  const [conference, setConference] = useState(dafaultValue);
+
+  const [conference, setConference]=useState(dafaultValue);
   const navigate = useNavigate();
-
+  
+  const {id} = useParams();
+  
+  useEffect(()=>{
+    loadConferenceDetails();
+  },[])
+  
+  const loadConferenceDetails= async()=>{
+  const response = await  getConference(id);
+  setConference(response.data);
+  }
+  
+    
+  
+  
   // form value
-  const onValueChange = (e) => {
-    setConference({ ...conference, [e.target.name]: e.target.value });
-  }
-
-  const addConferenceDetails = async () => {
-    await addConference(conference);
-
-    navigate('/add-conference');
-  }
+      const onValueChange=(e)=>{
+        setConference({...conference,[e.target.name]:e.target.value});
+      }
+  
+      const editConferenceDetails = async()=>{
+         await editConference(conference,id);
+         navigate('/dashboard/add-conference');
+  
+  
+      }
   return (
     <>
 
@@ -90,44 +104,44 @@ getAllSponsers();
         <Sidebar />
 
         <div className="container">
-          <h4 className='text-center mt-4 mb-4'>Add Conference</h4>
+          <h4 className='text-center mt-4 mb-4'>Edit Conference</h4>
           <form className="row g-3 needs-validation" noValidate>
            
             <div className="col-md-4">
               <label htmlFor="validationCustom01" className="form-label">Conference Title</label>
               <input type="text" className="form-control" id="validationCustom01" placeholder="Enter Conference Title" required
-                onChange={(e) => onValueChange(e)} name='conferencetitle'
+                onChange={(e) => onValueChange(e)} name='conferencetitle' value={conference.conferencetitle}
               />
 
             </div>
             <div className="col-md-4">
               <label htmlFor="validationCustom02" className="form-label">Conference Start Date</label>
-              <input type="date" className="form-control" id="validationCustom02" placeholder="Start Date" required onChange={(e) => onValueChange(e)} name='conferencestartdate' />
+              <input type="date" className="form-control" id="validationCustom02" placeholder="Start Date" required onChange={(e) => onValueChange(e)} name='conferencestartdate' value={conference.conferencestartdate}/>
               
             </div>
-            <div className="col-md-2">
+            <div className="col-md-4">
               <label htmlFor="validationCustom02" className="form-label">Conference Start Time</label>
-              <input type="time" className="form-control" id="validationCustom02" placeholder="Start Date" required onChange={(e) => onValueChange(e)} name='conferencestarttime' />
+              <input type="time" className="form-control" id="validationCustom02" placeholder="Start Date" required onChange={(e) => onValueChange(e)} name='conferencestarttime' value={conference.conferencestarttime}/>
               
             </div>
-            <div className="col-md-2">
+            <div className="col-md-4">
               <label htmlFor="validation" className="form-label">Conference End Date</label>
-              <input type="date" className="form-control" id="validationCustom02" placeholder="End Date" required onChange={(e) => onValueChange(e)} name='conferenceenddate' />
+              <input type="datetime-local" className="form-control" id="validationCustom02" placeholder="End Date" required onChange={(e) => onValueChange(e)} name='conferenceenddate' value={conference.conferenceendtime}/>
 
             </div>
-            <div className="col-md-2">
+            <div className="col-md-4">
               <label htmlFor="validation" className="form-label">Conference End Time</label>
-              <input type="time" className="form-control" id="validationCustom02" placeholder="End Date" required onChange={(e) => onValueChange(e)} name='conferenceendtime' />
+              <input type="time" className="form-control" id="validationCustom02" placeholder="End Date" required onChange={(e) => onValueChange(e)} name='conferenceendtime' value={conference.conferenceenddate}/>
 
             </div>
             <div className="col-md-4">
               <label htmlFor="validation" className="form-label">Conference Image</label>
-              <input type="url" className="form-control" id="validationCustom02"  required onChange={(e) => onValueChange(e)} name='conferenceimage' />
+              <input type="url" className="form-control" id="validationCustom02"  required onChange={(e) => onValueChange(e)} name='conferenceimage' value={conference.conferenceimage} />
 
             </div>
             <div class="col-md-3">
     <label for="validationCustom04" class="form-label">Sponser Email</label>
-    <select class="form-select" id="validationCustom04" required onChange={(e)=>onValueChange(e)} name='sponsersemail'> 
+    <select class="form-select" id="validationCustom04" required onChange={(e)=>onValueChange(e)} name='sponsersemail' value={conference.sponsersemail}> 
     <option selected value="" >Choose... </option>
                 {
                   sponsers.map(name => (
@@ -144,7 +158,7 @@ getAllSponsers();
 
   <div class="col-md-3">
     <label for="validationCustom04" class="form-label">Speaker Email</label>
-    <select class="form-select" id="validationCustom04" required onChange={(e)=>onValueChange(e)} name='speakersemail'> 
+    <select class="form-select" id="validationCustom04" required onChange={(e)=>onValueChange(e)} name='speakersemail' value={conference.speakersemail}> 
     <option selected value="" >Choose... </option>
                 {
                   speakers.map(name => (
@@ -159,7 +173,7 @@ getAllSponsers();
   </div>
   <div class="col-md-3">
     <label for="validationCustom04" class="form-label">Venue Name & Address</label>
-    <select class="form-select" id="validationCustom04" required onChange={(e)=>onValueChange(e)} name='venuename'> 
+    <select class="form-select" id="validationCustom04" required onChange={(e)=>onValueChange(e)} name='venuename' value={conference.venuename}> 
     <option selected value="" >Choose... </option>
                 {
                   venues.map(name => (
@@ -175,18 +189,18 @@ getAllSponsers();
  
             <div className="col-md-4">
               <label htmlFor="validationCustom02" className="form-label">Feedback Url</label>
-              <input type="text" className="form-control" id="validationCustom02"  required onChange={(e) => onValueChange(e)} name='feedbackurl' />
+              <input type="text" className="form-control" id="validationCustom02"  required onChange={(e) => onValueChange(e)} name='feedbackurl' value={conference.feedbackurl} />
               
             </div>
 
 
 
             <label htmlFor="validationCustom03" className="form-label">Description</label>
-            <textarea rows="5" cols="50" onChange={(e) => onValueChange(e)} name='description' />
+            <textarea rows="5" cols="50" onChange={(e) => onValueChange(e)} name='description' value={conference.description}/>
            
             <div className="col-md-3">
               <label htmlFor="validationCustom02" className="form-label">Manuscript Submission Url</label>
-              <input type="url" className="form-control" id="validationCustom02"  required onChange={(e) => onValueChange(e)} name='manuscriptsubmissionurl' />
+              <input type="url" className="form-control" id="validationCustom02"  required onChange={(e) => onValueChange(e)} name='manuscriptsubmissionurl'  value={conference.manuscriptsubmissionurl}/>
               <div className="valid-feedback">
                 Looks good!
               </div>
@@ -194,42 +208,34 @@ getAllSponsers();
            
             <div className="col-md-3">
               <label htmlFor="validationCustom02" className="form-label">Manuscript Submission Date</label>
-              <input type="date" className="form-control" id="validationCustom02" required onChange={(e) => onValueChange(e)} name='manuscriptsubmissiondate' />
+              <input type="date" className="form-control" id="validationCustom02" required onChange={(e) => onValueChange(e)} name='manuscriptsubmissiondate' value={conference.manuscriptsubmissiondate} />
               <div className="valid-feedback">
                 Looks good!
               </div>
             </div>
             <div className="col-md-3">
               <label htmlFor="validation" className="form-label">Manuscript End Date</label>
-              <input type="date" className="form-control" id="validationCustom02"  required onChange={(e) => onValueChange(e)} name='manuscriptenddate' />
+              <input type="date" className="form-control" id="validationCustom02"  required onChange={(e) => onValueChange(e)} name='manuscriptenddate' value={conference.manuscriptenddate} />
 
             </div>
 
             <div className="col-md-4">
               <label htmlFor="validationCustom03" className="form-label">online & Offline<strong>Address</strong></label>
-              <input type="text" className="form-control" id="validationCustom03" required onChange={(e) => onValueChange(e)} name='onlineoffline' />
+              <input type="text" className="form-control" id="validationCustom03" required onChange={(e) => onValueChange(e)} name='onlineoffline'  value={conference.onlineoffline}/>
 
             </div>
             <div className="col-md-12">
               <label htmlFor="validationCustom03" className="form-label">Key Points</label>
-              <input type="text" className="form-control" id="validationCustom03" required onChange={(e) => onValueChange(e)} name='conferencekeypoints' />
+              <input type="text" className="form-control" id="validationCustom03" required onChange={(e) => onValueChange(e)} name='conferencekeypoints' value={conference.conferencekeypoints} />
 
             </div>
           
-          
-
-            
 
             <div className="col-12">
-              <button className="btn btn-primary" type="submit" onClick={() => addConferenceDetails()}>Submit form</button>
+              <button className="btn btn-primary" type="submit" onClick={() => editConferenceDetails()}>Update Conference</button>
             </div>
           </form>
-          <h4 className='text-center'>All Conference Data</h4>
-          <div className="overflow-scroll">
- 
-<ViewConference/>
-
-</div>
+         
 
         </div>
 
@@ -240,4 +246,4 @@ getAllSponsers();
   )
 }
 
-export default AddConference
+export default EditConference

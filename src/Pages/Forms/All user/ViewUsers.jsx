@@ -1,43 +1,60 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Sidebar from "../../../components/Sidebar/Sidebar";
+import React from 'react'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+import Sidebar from '../../../components/Sidebar/Sidebar'
+import {URL}  from '../../../api/Api'
 
+const ViewUsers = () => {
+    const [users, setUser] = useState([])
 
-const ViewUser =()=> {
-  const url = "http://localhost:8000/all-users";
-  const [data, setData] = useState([]);
+    useEffect(()=>{
+myfun();
+    },[])
 
-  const fetchInfo = () => {
-    return axios.get(url).then((res) => setData(res.data));
-  };
+    const myfun = async() =>{
+const data = await axios.get(`${URL}/all-users`)
+if(data){
+    setUser(data.data.users)
+}
+    }
 
-  useEffect(() => {
-    fetchInfo();
-  }, []);
 
   return (
-    <div className="d-flex">
-        <Sidebar/>
-      <h1 style={{ color: "green" }}>using Axios Library to Fetch Data</h1>
-      <center>
-        {data.map((dataObj, index) => {
-          return (
-            <div
-              style={{
-                width: "15em",
-                backgroundColor: "#CD8FFD",
-                padding: 2,
-                borderRadius: 10,
-                marginBlock: 10,
-              }}
-            >
-              <p style={{ fontSize: 20, color: 'white' }}>{dataObj.name}</p>
-            </div>
-          );
-        })}
-      </center>
-    </div>
-  );
+    <>
+<div className="d-flex">
+  <Sidebar/>
+ 
+<div className="container">
+<h4 className='text-center mx-2'>All User Data</h4>
+
+<div className=" overflow-auto">
+<table className="table border" >
+ <thead>
+    <tr>
+    <th>Id</th>
+    <th>UserName</th>
+    <th>Email</th>
+    <th>Created At</th>
+    </tr>
+  </thead>
+
+<tbody>
+    {users.map((value)=>
+    <tr>
+        <td>{value._id}</td>
+        <td>{value.username}</td>
+        <td>{value.email}</td>
+        <td>{new Date(value.createdAt).toDateString()}</td>
+    </tr>
+    )
+    }
+</tbody>
+</table>
+</div>
+</div>
+</div>
+    </>
+  )
 }
 
-export default ViewUser;
+export default ViewUsers
