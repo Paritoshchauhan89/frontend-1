@@ -1,59 +1,44 @@
-import React,{useState} from 'react'
-import axios from 'axios'
+import React, { useState } from 'react';
+import axios from 'axios';
+import Sidebar from '../../../components/Sidebar/Sidebar'
+import {URL} from '../../../api/Api'
 
+function ImageUpload() {
+  const [image, setImage] = useState(null);
 
-const AddMedia = () => {
+  const handleImageUpload = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('image', image);
 
-const [newUser, setNewAuthor] = useState(
-  {
-  name:'',
-  age:'',
-  photo:'',
-})
-const handleChange =(e) =>{
-setNewAuthor({...newUser, [e.target.name]:e.target.value});
-}
-
-
-const handlePhoto = (e) => {
-  setNewAuthor({...newUser,photo: e.target.files[0]});
-  console.log(newUser.photo);
-} 
-
-const handleSubmit=(e) => {
-  e.preventDefault();
-  const formData = new FormData();
-  formData.append('photo', newUser.photo);
-  formData.append('age', newUser.age);
-  formData.append('name', newUser.name);
-
-  console.log(newUser.photo);
-
-  axios.post('http://localhost:8000/authors/add/', formData)
-  .then(res=>{
-    console.log(res);
-  })
-
-  .catch(err =>{
-    console.log(err);
-  })
-}
+    try {
+      await axios.post(`${URL}/upload`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      // Handle success or redirect as needed
+    } catch (error) {
+      // Handle errors
+    }
+  };
 
   return (
-    <>
-      <form onSubmit={handleSubmit} encType='multipart/form-data'>
-
-        <input type="file" accept='.png, .jpg, .jpeg' name='photo' onChange={handlePhoto}/>
-      
-      <input type="text"  placeholder='name' value={newUser.name} onChange={handleChange}/>
-      <input type="text"  placeholder='age' value={newUser.name} onChange={handleChange}/>
-      <div className="bg">
-
-      </div>
-      <input type="submit" />
+    <div className="d-flex">
+<Sidebar/>
+      <div className='mx-5'>
+      <form onSubmit={handleImageUpload}>
+        <input
+          type="file"
+          accept=".jpg, .jpeg, .png" 
+          name='mainimage'
+          onChange={(e) => setImage(e.target.files[0])}
+        />
+        <button type="submit">Upload Image</button>
       </form>
-    </>
-  )
+    </div>
+    </div>
+  );
 }
 
-export default AddMedia
+export default ImageUpload;

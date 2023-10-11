@@ -49,7 +49,7 @@ const Sidebar = () => {
       </Link>
     </li>
     <li className="nav-item mt-2">
-      <Link to="/dashboard/upload-media" className="nav-link active" aria-current="page">
+      <Link to="/dashboard/upload" className="nav-link active" aria-current="page">
           Media
       </Link>
     </li>

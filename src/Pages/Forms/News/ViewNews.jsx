@@ -32,14 +32,13 @@ const ViewNews = () => {
     <div className="mt-4">
 <table className="table border table-striped table-hover" style={{ textAlign:'justify'}} >
   <thead className='table-success'>
-    <tr>
+    <tr className='text-center'>
       <th scope="col" >ID</th>
       <th scope="col ">Title</th>
       <th scope="col ">Image  url</th>
       <th scope="col">Key Points</th>
       <th scope="col">decription1</th>
       <th scope="col">description2</th>
-      
       <th scope='col'>Update</th>
       <th scopoe="col">Delete</th>
     </tr>
@@ -49,11 +48,11 @@ const ViewNews = () => {
   newss.map(news=>(
     <tr  key={news._id} >
       <td>{news._id}</td>
-      <td>{news.title}</td>
-      <td>{news.image}</td>
-      <td>{news.keypoints}</td>
-      <td>{news.description1}</td>
-      <td>{news.description2}</td>
+      <td><p style={{width:'400px',wordWrap:'break-word'}}>{news.title}</p></td>
+      <td><p style={{textAlign:'left', width:'400px',height:'80px',wordWrap:'break-word',overflowY:'scroll'}}>{news.image}</p></td>
+      <td><p style={{wordWrap:'break-word',width:'300px'}}>{news.keypoints}</p></td>
+      <td><p style={{overflowY:'scroll',textAlign:'left', width:'600px',height:'80px',wordWrap:'break-word'}}>{news.description1}</p></td>
+      <td><p style={{overflowY:'scroll',textAlign:'left', width:'600px',height:'80px',wordWrap:'break-word'}}>{news.description2}</p></td>
      
       <td>
       <Link to={`/dashboard/edit-news/${news._id}`}><button className='btn btn-primary' style={{marginRight:5}}>Edit</button></Link>

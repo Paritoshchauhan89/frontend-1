@@ -38,6 +38,7 @@ getAllFaqs();
       <th scopoe="col">Delete</th>
     </tr>
   </thead>
+ 
   <tbody>
 {
   faqs.map(faq=>(

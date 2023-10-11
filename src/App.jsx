@@ -152,7 +152,7 @@ const App = () => {
 
 
 {/* upload media */}
-<Route path='/dashboard/upload-media' element={<AddMedia/>}/>
+<Route path='/dashboard/upload' element={<AddMedia/>}/>
 
 
 
