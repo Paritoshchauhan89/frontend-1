@@ -22,6 +22,7 @@ const ViewVenue = () => {
 
 
    const deleteVenueDetails=async(id)=>{
+    alert('Data Deleted successfully');
     await deleteVenue(id);
     getAllVenues();
 
@@ -33,8 +34,8 @@ const ViewVenue = () => {
 
  
    <div className="mt-5 container"> 
-<table className="table border " style={{overflow:"scroll"}} >
-  <thead>
+<table className="table border table-striped table-hover">
+  <thead className='table-success'>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Name Of Place </th>

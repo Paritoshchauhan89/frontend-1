@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import {getConferences, deleteConference}  from '../../../api/Api';
 import { Link } from 'react-router-dom';
+import './conferences.css'
 
 const ViewConference = () => {
 
@@ -19,6 +20,7 @@ const ViewConference = () => {
    }
 
    const deleteConferenceDetails=async(id)=>{
+    alert('data Deleted successfully');
     await deleteConference(id);
     getAllConferences();
 
@@ -28,7 +30,7 @@ const ViewConference = () => {
   return (
     <>
     <div className="mt-4">
-<table className="table" style={{overflow:"scroll"}} >
+<table className="table table-striped table-hover border">
   <thead>
     <tr>
       <th scope="col">ID</th>

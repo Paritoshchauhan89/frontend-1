@@ -19,6 +19,7 @@ const ViewNews = () => {
  
    }
    const deleteNewsDetails=async(id)=>{
+    alert('Data Deleted successfully');
     await deleteNews(id);
     getAllNewss();
 
@@ -29,8 +30,8 @@ const ViewNews = () => {
   return (
     <>
     <div className="mt-4">
-<table className="table table-fixed" style={{ textAlign:'justify'}} >
-  <thead>
+<table className="table border table-striped table-hover" style={{ textAlign:'justify'}} >
+  <thead className='table-success'>
     <tr>
       <th scope="col" >ID</th>
       <th scope="col ">Title</th>

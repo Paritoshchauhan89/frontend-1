@@ -29,6 +29,7 @@ const onValueChange=(e)=>{
 }
 
 const addContactDetails = async()=>{
+  alert('Message Send successfully');
   await addContact(contact);
 
 navigate('/contact');

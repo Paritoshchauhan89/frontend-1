@@ -18,6 +18,7 @@ getAllGallerys();
  
    }
    const deleteGalleryDetails=async(id)=>{
+    alert('Data Deleted successfully');
     await deleteGallery(id);
     getAllGallerys();
 
@@ -27,9 +28,9 @@ getAllGallerys();
   return (
     <>
     <div className="mt-4">
-<table className="table" style={{overflow:"scroll"}} >
+<table className="table table-striped table-hover">
   <thead>
-    <tr>
+    <tr className='table-success'>
       <th scope="col">ID</th>
       <th scope="col">Title</th>
       <th scope="col">Image Url</th>

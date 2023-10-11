@@ -37,6 +37,7 @@ const EditGallery = () => {
         }
     
         const editgalleryDetails = async()=>{
+          alert('Data Update successfully');
            await editGallery(gallery,id);
            navigate('/dashboard/add-gallery');
     

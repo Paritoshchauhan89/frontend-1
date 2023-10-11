@@ -30,9 +30,10 @@ const ViewContact = () => {
    <div className="d-flex">
     <Sidebar/>
    <div className="mt-5 container"> <h3 className='text-center mb-4'>All Contact us Data</h3>
-<table className="table border " style={{overflow:"scroll"}} >
+<div className="container overflow-auto">
+<table className="table border table-striped table-hover">
   <thead>
-    <tr>
+    <tr className='table-success'>
       <th scope="col">ID</th>
       <th scope="col">Full Name</th>
       <th scope="col">Email </th>
@@ -61,6 +62,7 @@ const ViewContact = () => {
    
   </tbody>
 </table>
+</div>
 </div>
    </div>
     

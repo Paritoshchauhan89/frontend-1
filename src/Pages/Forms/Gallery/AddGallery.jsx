@@ -23,6 +23,7 @@ const navigate = useNavigate();
     }
 
     const addGalleryDetails = async()=>{
+      alert('Data Add successfully');
        await addGallery(gallery);
 
 navigate('/add-gallery');

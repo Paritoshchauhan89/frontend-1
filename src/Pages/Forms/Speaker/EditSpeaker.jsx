@@ -50,6 +50,7 @@ setSpeaker(response.data);
     }
 
     const editSpeakerDetails = async()=>{
+      alert('Data Updated successfully');
        await editSpeaker(speaker,id);
        navigate('/add-speaker');
 

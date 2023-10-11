@@ -45,6 +45,7 @@ setSponser(response.data);
     }
 
     const editSponserDetails = async()=>{
+      alert('Data Updated successfully');
        await editSponser(sponser,id);
        Navigate('/add-sponser');
 

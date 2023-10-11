@@ -19,6 +19,7 @@ getAllSponsers();
  
    }
    const deleteSponserDetails=async(id)=>{
+    alert('Data Deleted successfully');
     await deleteSponser(id);
     getAllSponsers();
 
@@ -28,8 +29,8 @@ getAllSponsers();
   return (
     <>
     <div className="mt-4">
-<table className="table" style={{overflow:"scroll"}} >
-  <thead>
+<table className="table border table-striped table-hover" >
+  <thead className='table-success'>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Full Name</th>

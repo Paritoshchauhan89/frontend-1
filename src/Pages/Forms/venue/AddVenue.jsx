@@ -34,6 +34,7 @@ const AddVenue = () => {
 
 
     const addVenueDetails = async () => {
+        alert('Data Submitted successfully');
         await addVenue(venue);
         navigate('/add-venue');
     }

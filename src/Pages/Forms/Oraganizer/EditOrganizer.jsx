@@ -50,6 +50,7 @@ setOrganizer(response.data);
     }
 
     const editorganizerDetails = async()=>{
+      alert('Data Updated successfully');
        await editOrganizer(organizer,id);
        navigate('/dashboard/add-organzier');
 

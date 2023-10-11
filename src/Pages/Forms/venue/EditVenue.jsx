@@ -46,6 +46,7 @@ const EditVenue = () => {
         }
     
         const editVenueDetails = async()=>{
+            alert('Data Updated successfully');
            await editVenue(venue,id);
            Navigate('/add-sponser');
     

@@ -1,35 +1,57 @@
-import React, { useState } from 'react'
-import Sidebar from '../../../components/Sidebar/Sidebar'
+import React,{useState} from 'react'
 import axios from 'axios'
-import { URL } from '../../../api/Api'
-
 
 
 const AddMedia = () => {
 
-  const [file, setFile] = useState()
+const [newUser, setNewAuthor] = useState(
+  {
+  name:'',
+  age:'',
+  photo:'',
+})
+const handleChange =(e) =>{
+setNewAuthor({...newUser, [e.target.name]:e.target.value});
+}
 
-  const handleUpload=(e)=>{
-    const formdata = new FormData()
-    formdata.append('file',file)
-    axios.post("http://localhost:8000/upload-media",formdata )
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-  }
-  
+
+const handlePhoto = (e) => {
+  setNewAuthor({...newUser,photo: e.target.files[0]});
+  console.log(newUser.photo);
+} 
+
+const handleSubmit=(e) => {
+  e.preventDefault();
+  const formData = new FormData();
+  formData.append('photo', newUser.photo);
+  formData.append('age', newUser.age);
+  formData.append('name', newUser.name);
+
+  console.log(newUser.photo);
+
+  axios.post('http://localhost:8000/authors/add/', formData)
+  .then(res=>{
+    console.log(res);
+  })
+
+  .catch(err =>{
+    console.log(err);
+  })
+}
+
   return (
     <>
-      <div className="d-flex">
-        <Sidebar/>
-      <div className="container">
-        <h3 className='text-center mt-4 mb-4'>All Image Data </h3>
-      <div className="col-md-6 mx-auto">
-        <input type='file' onChange={e => setFile(e.target.files[0])}/>
-        <button type='button' className='btn btn-outline-primary' onClick={handleUpload}>Upload Image</button>
-      </div>
-      </div>
-      </div>
+      <form onSubmit={handleSubmit} encType='multipart/form-data'>
+
+        <input type="file" accept='.png, .jpg, .jpeg' name='photo' onChange={handlePhoto}/>
       
+      <input type="text"  placeholder='name' value={newUser.name} onChange={handleChange}/>
+      <input type="text"  placeholder='age' value={newUser.name} onChange={handleChange}/>
+      <div className="bg">
+
+      </div>
+      <input type="submit" />
+      </form>
     </>
   )
 }

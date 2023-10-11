@@ -24,12 +24,12 @@ if(data){
 <div className="d-flex">
   <Sidebar/>
  
-<div className="container">
-<h4 className='text-center mx-2'>All User Data</h4>
+<div className="container mb-4">
+<h4 className='text-center mt-2 mb-2'>All User Data</h4>
 
 <div className=" overflow-auto">
-<table className="table border" >
- <thead>
+<table className="table border table-striped table-hover" >
+ <thead className='table-success'>
     <tr>
     <th>Id</th>
     <th>UserName</th>

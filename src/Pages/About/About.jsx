@@ -32,7 +32,7 @@ const About = () => {
             
             </div>
             <div className="card-group ">
-            <div className="card mx-4">
+            <div className="card mx-4 border">
               <div className="mx-auto p-2 d-flex">
                 <svg
                   classname="tcb-icon mb-4"
@@ -60,7 +60,7 @@ const About = () => {
                 </p>
               </div>
             </div>
-            <div className="card mx-4">
+            <div className="card mx-4 border">
               <div className="mx-auto p-2 d-flex">
                 <svg
                   className="tcb-icon"
@@ -86,7 +86,7 @@ const About = () => {
                 </p>
               </div>
             </div>
-            <div className="card mx-4">
+            <div className="card mx-4 border">
               <div className="mx-auto p-2 d-flex" >
                 <svg
                   className="tcb-icon"

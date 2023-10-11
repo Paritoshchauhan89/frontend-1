@@ -17,6 +17,7 @@ getAllSpeakers();
  
    }
    const deleteSpeakerDetails=async(id)=>{
+    alert('Data Deleted successfully');
     await deleteSpeaker(id);
     getAllSpeakers();
 
@@ -26,8 +27,8 @@ getAllSpeakers();
   return (
     <>
     <div className="mt-4">
-<table className="table table-fixed">
-  <thead>
+<table className="table table-striped table-hover">
+  <thead className='table-success'>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Full Name</th>
@@ -41,6 +42,7 @@ getAllSpeakers();
       <th scope="col">Address</th>
       <th scope="col">Country</th>
       <th scope="col">State</th>
+      <th scope="col">City</th>
       <th scope="col">Pincode</th>
       <th scope="col">Bio</th>
       <th scope="col">profile Url</th>

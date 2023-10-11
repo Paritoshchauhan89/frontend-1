@@ -30,7 +30,7 @@ const Footer = () => {
           <ul className="footer-links list-unstyled">
             <li><Link to="/venue"><i className="bi bi-chevron-right" /> Venue</Link></li>
             <li><Link to="/all-conferences"><i className="bi bi-chevron-right" /> Conferences</Link></li>
-            <li><Link to="/sponsers"><i className="bi bi-chevron-right" /> Sponsers</Link></li>
+            <li><Link to="/all-sponsers"><i className="bi bi-chevron-right" /> Sponsers</Link></li>
           </ul>
         </div>
         <div className="col-lg-4">

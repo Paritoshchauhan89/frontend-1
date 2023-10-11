@@ -36,6 +36,7 @@ const EditFaq = () => {
         }
     
         const editFaqDetails = async()=>{
+          alert('data Updated successfully');
            await editFaq(faq,id);
            navigate('/dashboard/add-faq');
     

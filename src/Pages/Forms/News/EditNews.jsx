@@ -38,6 +38,7 @@ const EditNews = () => {
           }
       
           const editnewsDetails = async()=>{
+            alert('Data Updated successfully');
              await editNews(news,id);
              navigate('/add-news');
       

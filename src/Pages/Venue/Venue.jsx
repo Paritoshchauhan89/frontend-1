@@ -1,10 +1,26 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import './Venue.css'
 import Navbar from '../../components/Header/Navbar'
 import Footer from '../../components/Footer/Footer'
+import { getVenues } from '../../api/Api'
 
 const Venue = () => {
+
+
+
+  const [venues, setVenue]= useState ([]);
+
+  useEffect(()=>{
+    getAllVenues();
+  },[]);
+
+  const getAllVenues = async()=>{
+    let response =  await getVenues();
+    setVenue(response.data);
+ 
+   }
+
   return (
     <>
     <Navbar/>
@@ -15,12 +31,14 @@ const Venue = () => {
       <p className='text-center'> Her are some nearby hotels</p>
     </div>
     <div className="row aos-init aos-animate" data-aos="fade-up" data-aos-delay={100}>
-      <div className="col-lg-4 col-md-6">
+     {
+      venues.map((venue)=>(
+        <div className="col-lg-4 col-md-6">
         <div className="hotel">
           <div className="hotel-img">
-            <img src="https://stmconferences.com/wp-content/uploads/2018/09/logo-signage.jpg" alt="Hotel 1" className="img-fluid" />
+            <img src={venue.image} alt="Hotel 1" className="img-fluid" />
           </div>
-          <h3><Link to="#">Place 1</Link></h3>
+          <h3><Link to={venue.venueurl}>{venue.nameofplace}</Link></h3>
           <div className="stars">
             <i className="bi bi-star-fill" />
             <i className="bi bi-star-fill" />
@@ -28,40 +46,12 @@ const Venue = () => {
             <i className="bi bi-star-fill" />
             <i className="bi bi-star-fill" />
           </div>
-          <p>0.4 Mile from the Venue</p>
+          <p>{venue.address}</p>
         </div>
       </div>
-      <div className="col-lg-4 col-md-6">
-        <div className="hotel">
-          <div className="hotel-img">
-            <img src="https://bootstrapmade.com/demo/templates/TheEvent/assets/img/hotels/1.jpg" alt="Hotel 2" className="img-fluid" />
-          </div>
-          <h3><Link to="#">Place 2</Link></h3>
-          <div className="stars">
-            <i className="bi bi-star-fill" />
-            <i className="bi bi-star-fill" />
-            <i className="bi bi-star-fill" />
-            <i className="bi bi-star-fill" />
-            <i className="bi bi-star-fill-half-full" />
-          </div>
-          <p>0.5 Mile from the Venue</p>
-        </div>
-      </div>
-      <div className="col-lg-4 col-md-6">
-        <div className="hotel">
-          <div className="hotel-img">
-            <img src="https://bootstrapmade.com/demo/templates/TheEvent/assets/img/hotels/2.jpg" alt="Hotel 3" className="img-fluid" />
-          </div>
-          <h3><Link to="#">Place 3</Link></h3>
-          <div className="stars">
-            <i className="bi bi-star-fill" />
-            <i className="bi bi-star-fill" />
-            <i className="bi bi-star-fill" />
-            <i className="bi bi-star-fill" />
-          </div>
-          <p>0.6 Mile from the Venue</p>
-        </div>
-      </div>
+      ))
+     }
+     
     </div>
   </div>
 </section>

@@ -22,6 +22,7 @@ const navigate = useNavigate();
     }
 
     const addFaqDetails = async()=>{
+      alert('data submitted successfully');
        await addFaq(faq);
 
 navigate('/add-faq');

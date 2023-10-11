@@ -25,6 +25,8 @@ const AddNews = () => {
       
         
           const addNewsDetails = async()=>{
+            alert('Data Submitted successfully');
+
             await addNews(news);
            navigate('/add-news');
          }
@@ -38,8 +40,8 @@ const AddNews = () => {
           <h4 className='text-center mt-2 mb-2'>Add News</h4>
           <form className="row g-3 needs-validation" noValidate>
             <div className="col-md-6">
-              <label htmlFor="validationCustom01" className="form-label">Title</label>
-              <input type="text" className="form-control" id="validationCustom01" placeholder="title" required
+              <label htmlFor="validationImageUrl" className="form-label">Title</label>
+              <input type="text" className="form-control" id="validationImageUrl" placeholder="title" required
                 onChange={(e) => onValueChange(e)} name='title'
               />
 

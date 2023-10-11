@@ -31,9 +31,9 @@ getAllTestnomials();
         <Sidebar/>
         <div className=" container mt-4">
             <h4 className='text-center mt-2 mb-4'>Testnomial Data</h4>
-<table className="table" style={{overflow:"scroll"}} >
+<table className="table table-striped table-hover">
   <thead>
-    <tr>
+    <tr className='table-success'>
       <th scope="col">ID</th>
       <th scope="col">Full Name</th>
       <th scope="col">Email</th>

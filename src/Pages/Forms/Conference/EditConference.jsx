@@ -92,6 +92,7 @@ getAllSponsers();
       }
   
       const editConferenceDetails = async()=>{
+        alert('data Updated successfully');
          await editConference(conference,id);
          navigate('/dashboard/add-conference');
   

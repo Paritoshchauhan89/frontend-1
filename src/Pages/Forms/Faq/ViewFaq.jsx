@@ -18,6 +18,7 @@ getAllFaqs();
  
    }
    const deleteFaqDetails=async(id)=>{
+    alert('Data Deletd successfully');
     await deleteFaq(id);
     getAllFaqs();
 
@@ -27,9 +28,9 @@ getAllFaqs();
   return (
     <>
     <div className="mt-4">
-<table className="table" style={{overflow:"scroll"}} >
+<table className="table table-striped table-hover border table-fixed">
   <thead>
-    <tr>
+    <tr className='table-success'>
       <th scope="col">ID</th>
       <th scope="col">Heading</th>
       <th scope="col">Paragraph</th>

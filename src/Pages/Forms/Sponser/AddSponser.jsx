@@ -32,6 +32,7 @@ const navigate = useNavigate();
     }
 
     const addSponserDetails = async()=>{
+      alert('Data Submitted successfully');
        await addSponser(sponser);
 
 navigate('/add-sponser');

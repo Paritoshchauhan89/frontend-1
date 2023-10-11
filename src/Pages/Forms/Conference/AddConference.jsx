@@ -79,6 +79,7 @@ getAllSponsers();
   }
 
   const addConferenceDetails = async () => {
+    alert('data submitted successfully');
     await addConference(conference);
 
     navigate('/add-conference');

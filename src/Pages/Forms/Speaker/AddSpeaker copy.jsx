@@ -37,6 +37,7 @@ const SpeakerForm = () => {
   }
 
   const addSpeakerDetails = async () => {
+    alert('Data Submitted successfully');
     await addSpeaker(speaker);
 
     navigate('/add-speaker');

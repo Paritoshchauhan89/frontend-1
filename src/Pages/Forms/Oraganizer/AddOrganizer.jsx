@@ -36,6 +36,7 @@ const AddOrganizer = () => {
       }
   
       const addOrganizerDetails = async()=>{
+        alert('Data Submitted successfully');
          await addOrganizer(organizer);
         navigate('/add-organizer');
       }

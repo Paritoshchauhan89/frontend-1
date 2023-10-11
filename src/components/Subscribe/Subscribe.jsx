@@ -25,6 +25,7 @@ const Subscribe = () => {
       }
   
       const addSubscriberDetails = async()=>{
+        alert('Message Send successfully');
          await addSubscriber(subscriber);
   
   navigate('#');
