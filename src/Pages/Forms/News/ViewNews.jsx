@@ -26,7 +26,6 @@ const ViewNews = () => {
 
   }
   
-   
   return (
     <>
     <div className="mt-4">
@@ -51,8 +50,8 @@ const ViewNews = () => {
       <td><p style={{width:'400px',wordWrap:'break-word'}}>{news.title}</p></td>
       <td><p style={{textAlign:'left', width:'400px',height:'80px',wordWrap:'break-word',overflowY:'scroll'}}>{news.image}</p></td>
       <td><p style={{wordWrap:'break-word',width:'300px'}}>{news.keypoints}</p></td>
-      <td><p style={{overflowY:'scroll',textAlign:'left', width:'600px',height:'80px',wordWrap:'break-word'}}>{news.description1}</p></td>
-      <td><p style={{overflowY:'scroll',textAlign:'left', width:'600px',height:'80px',wordWrap:'break-word'}}>{news.description2}</p></td>
+      <td><p style={{overflowY:'scroll',textAlign:'left', width:'600px',height:'80px',wordWrap:'break-word',whiteSpace: 'pre-line'}}>{news.description1}</p></td>
+      <td><p style={{overflowY:'scroll',textAlign:'left', width:'600px',height:'80px',wordWrap:'break-word'}} >{news.description2}</p></td>
      
       <td>
       <Link to={`/dashboard/edit-news/${news._id}`}><button className='btn btn-primary' style={{marginRight:5}}>Edit</button></Link>

@@ -28,9 +28,9 @@ const AddMedia = () => {
     const res = await axios.post(`${URL}/upload`, formData, config);
 
 
-    if (res.status == 200) {
+    if (res.status === 200) {
       alert('File Upload Successfully')
-      navigate("/dashboard/upload")
+      navigate("/dashboard/add-speaker")
     } else {
       alert("error")
     }

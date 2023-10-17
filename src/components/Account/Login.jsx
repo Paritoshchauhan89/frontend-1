@@ -4,12 +4,15 @@ import axios from 'axios'
 import { URL } from '../../api/Api'
 import { useDispatch } from "react-redux";
 import { authActions } from "../../Pages/redux/store";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
 
 
 
-  const localhost=URL;
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   //state
@@ -17,7 +20,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-
+  const [error, setError] = useState('');
   //handle input change
   const handleChange = (e) => {
     setInputs((prevState) => ({
@@ -26,22 +29,41 @@ const Login = () => {
     }));
   };
 
-  //form handle
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(`${localhost}/login`, {
+      
+  
+      const { data } = await axios.post(`${URL}/login`, {
         email: inputs.email,
         password: inputs.password,
       });
       if (data.success) {
-        localStorage.setItem("userId", data?.user._id);
+        // Close the loading toast
+        toast.dismiss();
+        localStorage.setItem('userId', data?.user._id);
         dispatch(authActions.login());
-        alert("User login Successfully");
-        navigate("/dashboard/add-sponser");
+        toast.success('User login Successfully');
+        navigate('/dashboard/add-sponser');
+      } else {
+        // Handle specific error cases
+        if (data.message === 'EmailNotRegistered') {
+          setError('Email is not registered.');
+        } else if (data.message === 'IncorrectPassword') {
+          setError('Password is not correct.');
+        } else {
+          setError('Login failed. Please Check your email id and password.');
+        }
+        // Close the loading toast and show the error toast
+        toast.dismiss();                                  
+        toast.error(error);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error); 
+      setError('Login failed. Please check your credentials.');
+      
+      toast.dismiss();
+      toast.error(error.message);
     }
   };
   return (
@@ -71,6 +93,7 @@ const Login = () => {
                 <div className="d-flex justify-content-center">
                   <button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >Login</button>
                 </div>
+               
               </form>
             </div>
           </div>

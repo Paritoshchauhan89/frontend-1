@@ -39,10 +39,10 @@ setSpeaker(response.data);
           <h2>{speaker.speakerfullname} <Link to={speaker.profileurl}><i className="bi bi-linkedin" /></Link></h2>  
           <h5>{speaker.speakeremail}</h5>
           
-          <span><b>Designation:</b> {speaker.designation} <b>Department: </b>({speaker.department})</span>          
+          
         </div>
       </div>
-      <span className='mt-4' >{speaker.bio}</span>
+      <span className='mt-4' style={{whiteSpace: 'pre-line',textAlign:'justify'}} >{speaker.bio}</span>
     </div>
   </div>
 </section>

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import {getSpeakers, deleteSpeaker}  from '../../../api/Api';
 import { Link } from 'react-router-dom';
 
+
 const ViewSpeaker = () => {
 
   const [speakers, setSpeakers]= useState ([]);
@@ -68,10 +69,10 @@ getAllSpeakers();
       <td>{speaker.speakerstate}</td>
       <td>{speaker.speakercity}</td>
       <td>{speaker.speakerpincode}</td>
-      <td>{speaker.bio}</td>
+      <td><p style={{overflowY:'scroll',textAlign:'left', width:'600px',height:'80px',wordWrap:'break-word'}}>{speaker.bio}</p></td>
       <td>{speaker.profileurl}</td>
       <td>
-      <Link to={`/dashboard/edit-speaker/${speaker._id}`}><button className='btn btn-primary' style={{marginRight:5}}>Edit</button></Link>
+      <Link to={`/dashboard/edit-speaker/${speaker._id}`}><button className='btn btn-primary ' style={{marginRight:5}}>Edit</button></Link>
         </td>
       <td><button type='button' className='btn btn-danger' onClick={()=>deleteSpeakerDetails(speaker._id)}>Delete</button></td>
       </tr>

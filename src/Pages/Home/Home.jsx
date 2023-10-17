@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Slider from '../../components/Banner/Slider'
 import Post from '../../components/Post/Post'
 import Cards from '../KnowMore/Cards'
@@ -9,6 +9,32 @@ import Navbar from '../../components/Header/Navbar'
 import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
+
+  useEffect(() => {
+    const marquee = document.getElementById('myMarquee');
+
+    // Function to stop the marquee
+    function stopMarquee() {
+      marquee.stop();
+    }
+
+    // Function to start the marquee
+    function startMarquee() {
+      marquee.start();
+    }
+
+    // Add event listeners to stop and start the marquee
+    marquee.addEventListener('mouseover', stopMarquee);
+    marquee.addEventListener('mouseout', startMarquee);
+
+    return () => {
+      // Clean up event listeners when the component unmounts
+      marquee.removeEventListener('mouseover', stopMarquee);
+      marquee.removeEventListener('mouseout', startMarquee);
+    };
+  }, []);
+
+
   return (
     <>
     <Navbar/>
@@ -24,7 +50,9 @@ const Home = () => {
               <h4 className="fst-italic">Recent posts</h4>
               <hr/>
             
-              <marquee direction = "up" height= "400px" ><Post/></marquee>
+              <marquee id="myMarquee" direction="up" height="400px">
+  <Post />
+</marquee>
             </div>
 
        
