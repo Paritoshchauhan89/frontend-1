@@ -25,6 +25,7 @@ const ViewSubscribe = () => {
    <div className="d-flex">
     <Sidebar/>
    <div className="mt-5 container"> <h3 className='text-center mb-4'>All Subscribers Data</h3>
+   <p>Total Subscribers: {subscribers.length}</p>
 <table className="table border table-striped table-hover " >
   <thead className='table-success' >
     <tr>

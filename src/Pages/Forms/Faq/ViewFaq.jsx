@@ -28,10 +28,11 @@ getAllFaqs();
   return (
     <>
     <div className="mt-4">
+      <p>Total Faq's: {faqs.length}</p>
 <table className="table table-striped table-hover border table-fixed">
   <thead>
     <tr className='table-success'>
-      <th scope="col">ID</th>
+      <th scope="col">#</th>
       <th scope="col">Heading</th>
       <th scope="col">Paragraph</th>
       <th scope='col'>Update</th>
@@ -41,9 +42,9 @@ getAllFaqs();
  
   <tbody>
 {
-  faqs.map(faq=>(
+  faqs.map((faq, index)=>(
     <tr key={faq._id}>
-      <td>{faq._id}</td>
+      <td>{index+1}</td>
       <td>{faq.faqheading}</td>
       <td>{faq.faqparagraph}</td>
       

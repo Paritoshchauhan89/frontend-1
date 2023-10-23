@@ -4,7 +4,7 @@ import Footer from '../../../components/Footer/Footer'
 import '../Sponsers.css'
 import {useState,useEffect} from 'react'
 import {getSponser } from '../../../api/Api' 
-import {useNavigate, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import { Link } from 'react-router-dom'
 
 

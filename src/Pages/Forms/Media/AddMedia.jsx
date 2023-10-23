@@ -40,7 +40,7 @@ const AddMedia = () => {
     <>
 
       <div className="d-flex">
-        <Sidebar />
+        <Sidebar className='sticky'/>
         <div className='container mt-3'>
         <h3 className='text-center'>Upload your File Here</h3>
         <form className="row g-2 needs-validation" noValidate>
@@ -60,7 +60,7 @@ const AddMedia = () => {
          </div>
 
         </form>
-<div className="mt-4">
+<div className="mt-4" >
 <ViewImage/>
 </div>
 

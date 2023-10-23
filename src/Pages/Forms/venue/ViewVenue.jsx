@@ -34,9 +34,12 @@ const ViewVenue = () => {
 
  
    <div className="mt-5 container"> 
+   <p>Total News/Events: {venues.length}</p>
+
 <table className="table border table-striped table-hover">
   <thead className='table-success'>
     <tr>
+      <th scope="col">#</th>
       <th scope="col">ID</th>
       <th scope="col">Name Of Place </th>
       <th scope="col">Venue Address</th>
@@ -56,7 +59,7 @@ const ViewVenue = () => {
 {
   venues.map((venue,index)=>(
     <tr key={venue._id}>
-      <td>{venue._id}</td>
+      <td>{index+1}</td>
       <td>{venue.nameofplace}</td>
       <td>{venue.address}</td>
       <td>{venue.image}</td>

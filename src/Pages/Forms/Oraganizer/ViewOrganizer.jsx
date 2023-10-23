@@ -28,9 +28,12 @@ getAllOrganizers();
   return (
     <>
     <div className="mt-4">
+    <p>Total Sponsers: {organizers.length}</p>
+
 <table className="table table-striped table-hover">
   <thead className='table-success'>
     <tr>
+    <th scope="col">#</th>
       <th scope="col">ID</th>
       <th scope="col">Full Name</th>
       <th scope="col">Email</th>
@@ -53,9 +56,10 @@ getAllOrganizers();
   </thead>
   <tbody>
 {
-  organizers.map(organizer=>(
+  organizers.map((organizer,index)=>(
     <tr key={organizer._id}>
       <td>{organizer._id}</td>
+      <td>{index+1}</td>
       <td>{organizer.organizerfullname}</td>
       <td>{organizer.organizeremail}</td>
       <td>{organizer.organizerphonenumber}</td>

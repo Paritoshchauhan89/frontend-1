@@ -30,9 +30,11 @@ const ViewConference = () => {
   return (
     <>
     <div className="mt-4">
+      <p>Total Conference : {conferences.length}</p>
 <table className="table table-striped table-hover border">
   <thead>
     <tr>
+      <th scope="col">#</th>
       <th scope="col">ID</th>
       <th scope="col">Conference Title</th>
       <th scope="col">Conference Start Date</th>
@@ -57,8 +59,9 @@ const ViewConference = () => {
   </thead>
   <tbody>
 {
-  conferences.map(conference=>(
+  conferences.map((conference, paritosh)=>(
     <tr key={conference._id}>
+      <td>{paritosh+1}</td>
       <td>{conference._id}</td>
       <td>{conference.conferencetitle}</td>
       <td>{new Date(conference.conferencestartdate).toDateString()}</td>

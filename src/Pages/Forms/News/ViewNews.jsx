@@ -29,9 +29,12 @@ const ViewNews = () => {
   return (
     <>
     <div className="mt-4">
+   <p>Total News/Events: {newss.length}</p>
+
 <table className="table border table-striped table-hover" style={{ textAlign:'justify'}} >
   <thead className='table-success'>
     <tr className='text-center'>
+      <th scope="col" >#</th>
       <th scope="col" >ID</th>
       <th scope="col ">Title</th>
       <th scope="col ">Image  url</th>
@@ -44,8 +47,9 @@ const ViewNews = () => {
   </thead>
   <tbody style={{overflow:'auto'}}>
 {
-  newss.map(news=>(
+  newss.map((news, index)=>(
     <tr  key={news._id} >
+      <td>{index+1}</td>
       <td>{news._id}</td>
       <td><p style={{width:'400px',wordWrap:'break-word'}}>{news.title}</p></td>
       <td><p style={{textAlign:'left', width:'400px',height:'80px',wordWrap:'break-word',overflowY:'scroll'}}>{news.image}</p></td>

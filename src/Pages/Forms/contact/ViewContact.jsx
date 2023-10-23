@@ -34,6 +34,7 @@ const ViewContact = () => {
 <table className="table border table-striped table-hover">
   <thead>
     <tr className='table-success'>
+    <th scope="col">#</th>
       <th scope="col">ID</th>
       <th scope="col">Full Name</th>
       <th scope="col">Email </th>
@@ -45,8 +46,9 @@ const ViewContact = () => {
   </thead>
   <tbody>
 {
-  contacts.map(contact=>(
+  contacts.map((contact,index)=>(
     <tr key={contact._id}>
+      <td>{index+1}</td>
       <td>{contact._id}</td>
       <td>{contact.user_name}</td>
       <td>{contact.user_email}</td>

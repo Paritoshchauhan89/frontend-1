@@ -28,20 +28,21 @@ if(data){
 <h4 className='text-center mt-2 mb-2'>All User Data</h4>
 
 <div className=" overflow-auto">
+<p>Total Users: {users.length}</p>
 <table className="table border table-striped table-hover" >
  <thead className='table-success'>
     <tr>
-    <th>Id</th>
-    <th>UserName</th>
+    <th>#</th>
+    <th>Username</th>
     <th>Email</th>
     <th>Created At</th>
     </tr>
   </thead>
 
 <tbody>
-    {users.map((value)=>
+    {users.map((value,index)=>
     <tr>
-        <td>{value._id}</td>
+        <td>{index+1}</td>
         <td>{value.username}</td>
         <td>{value.email}</td>
         <td>{new Date(value.createdAt).toDateString()}</td>

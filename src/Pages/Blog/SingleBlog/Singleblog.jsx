@@ -46,14 +46,14 @@ const Singleblog = () => {
          <div  className="single-post">
          <div className="post-meta"><span className="date">Time</span> <span className="mx-1">•</span> <span>Jul 5th '22</span></div>
          <h1 className="mb-5">{news.title}</h1>
-         <p><span className="firstcharacter"></span>{news.description1}</p>
+         <p><span className="firstcharacter" style={{whiteSpace: 'pre-line',textAlign:'justify'}}></span><b style={{fontSize:'20px'}}>About conference: </b>{news.description1}</p>
        
           <figure className="my-4 text-center">
-          <img src={news.image} width='500px' alt='news' className="img-fluid" />
+          <img src={news.image} width='400px'  alt='news' className="img-fluid" />
           <figcaption>{news.keypoints}</figcaption>
         </figure>
     
-         <p>{news.description2}</p>
+         <p style={{whiteSpace: 'pre-line',textAlign:'justify'}}>{news.description2}</p>
        </div>
      
         <div className="comments">

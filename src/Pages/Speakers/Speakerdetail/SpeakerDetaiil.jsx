@@ -31,17 +31,19 @@ setSpeaker(response.data);
       <h2>Speaker Details</h2>
     </div>
     <div className="row">
-      <div className="col-md-6">
+      <div className="col-md-12 text-center">
         <img src={speaker.speakerimage} alt="Speaker 1" className="img-fluid" />
+        <h2>{speaker.speakerfullname} <Link to={speaker.profileurl}><i className="bi bi-linkedin" /></Link></h2>  
+          <h5>{speaker.speakeremail}</h5>
       </div>
-      <div className="col-md-6 m-auto" style={{lineHeight:'3'}}>
+      {/* <div className="col-md-6 m-auto" style={{lineHeight:'3'}}>
         <div className="text-center">
           <h2>{speaker.speakerfullname} <Link to={speaker.profileurl}><i className="bi bi-linkedin" /></Link></h2>  
           <h5>{speaker.speakeremail}</h5>
           
           
         </div>
-      </div>
+      </div> */}
       <span className='mt-4' style={{whiteSpace: 'pre-line',textAlign:'justify'}} >{speaker.bio}</span>
     </div>
   </div>

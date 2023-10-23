@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { URL } from '../../../api/Api';
 import { ToastContainer, toast } from 'react-toastify';
@@ -38,8 +38,9 @@ const ViewImage = () => {
 
   return (
     <div className="container">
+       <p>Total Rows: {data.length}</p>
       <ToastContainer />
-      <div className="row">
+      <div className="row  overflow-auto" style={{height:'800px'}}>
         {data.map((file) => (
           <div className="col-md-3" key={file._name}>
             <div className="image-container">

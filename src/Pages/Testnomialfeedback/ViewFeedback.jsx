@@ -31,9 +31,11 @@ getAllTestnomials();
         <Sidebar/>
         <div className=" container mt-4">
             <h4 className='text-center mt-2 mb-4'>Testnomial Data</h4>
+            <p>Total Feedbacks/Testnomials: {testnomials.length}</p>
 <table className="table table-striped table-hover">
   <thead>
     <tr className='table-success'>
+      <th scope="col">#</th>
       <th scope="col">ID</th>
       <th scope="col">Full Name</th>
       <th scope="col">Email</th>
@@ -45,8 +47,9 @@ getAllTestnomials();
   </thead>
   <tbody>
 {
-  testnomials.map(testnomial=>(
+  testnomials.map((testnomial,index)=>(
     <tr key={testnomial._id}>
+      <td>{index+1}</td>
       <td>{testnomial._id}</td>
       <td>{testnomial.name}</td>
       <td>{testnomial.email}</td>
