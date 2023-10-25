@@ -11,7 +11,7 @@ export const addSponser = async (data) => {
     } catch (error) {
         console.log('Error while adding sponser Api ', error);    
     }
-}
+}                                                                                                                                   
 
 
 export const getSponsers = async () => {

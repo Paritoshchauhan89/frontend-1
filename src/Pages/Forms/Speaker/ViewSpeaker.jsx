@@ -162,7 +162,7 @@ const ViewSpeaker = () => {
                       <tr>
                         <td>Bio</td>
                         <td style={{textAlign:'justify'}}>{selectedRowData.bio}</td>
-                      </tr>    
+                      </tr>     
                       <tr>
                         <td>Entry Date</td>
                         <td>{new Date(selectedRowData.createdAt).toDateString()}</td>

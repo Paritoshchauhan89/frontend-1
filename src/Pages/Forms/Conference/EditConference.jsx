@@ -1,14 +1,21 @@
 import React, { useState,useEffect } from 'react'
-import { editConference, getConference } from '../../../api/Api' 
+import { editConference, getConference,getSponsers,getVenues, getSpeakers,  getOrganizers } from '../../../api/Api' 
 import {useNavigate, useParams} from 'react-router-dom';
-import {getSponsers}  from '../../../api/Api';
-import {getVenues}  from '../../../api/Api';
-import {getSpeakers}  from '../../../api/Api';
 import Sidebar from '../../../components/Sidebar/Sidebar'
 
 const EditConference = () => {
 
+  const [organizers, setOrganizers]= useState ([]);
 
+  useEffect(()=>{
+getAllOrganizers();
+  },[]);
+
+  const getAllOrganizers = async()=>{
+    let response =  await getOrganizers();
+    setOrganizers(response.data);
+ 
+   }
 
   const [venues, setVenue]= useState ([]);
 
@@ -70,6 +77,7 @@ getAllSponsers();
   }
 
   const [conference, setConference]=useState(dafaultValue);
+
   const navigate = useNavigate();
   
   const {id} = useParams();
@@ -164,6 +172,21 @@ getAllSponsers();
                 {
                   speakers.map(name => (
                     <option key={name.speakeremail}>{name.speakeremail}</option>
+                  ))
+                }
+
+    </select>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom04" class="form-label">Organizer Name</label>
+    <select class="form-select" id="validationCustom04" required onChange={(e)=>onValueChange(e)} name='organizername'> 
+    <option selected value="" >Choose... </option>
+                {
+                  organizers.map(name => (
+                    <option key={name.organizerfullname}>{name.organizerfullname}</option>
                   ))
                 }
 

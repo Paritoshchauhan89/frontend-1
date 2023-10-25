@@ -16,7 +16,6 @@ import PublicManagement from './Pages/Terms/Publlication/PublicManagement';
 import Organizerdetail from './Pages/Organizers/Organizerdetail/Organizerdetail';
 import Organizers from './Pages/Organizers/Organizers';
 import Error from './Pages/Error/Error';
-import Conferences from './Pages/Conferences/Conferences';
 import ScrollToTop from "./components/ScrollToTop";
 import Services1 from './Pages/Services/services-detail/Services-detail';
 import Login from './components/Account/Login';
@@ -50,6 +49,8 @@ import EditVenue from './Pages/Forms/venue/EditVenue';
 import Enroll from './Pages/Enrollment/Enroll';
 import ViewEnroll from './Pages/Forms/Enrollment/ViewEnroll';
 import EditConference from './Pages/Forms/Conference/EditConference';
+import ConferenceTable from './Pages/Conferences/ConferenceTable';
+import DetailConferences from './Pages/Conferences/DetailConferences';
 
 
 const App = () => {
@@ -69,7 +70,8 @@ const App = () => {
         <Route path='/services' element={<Services/>}/>
         <Route path='/all-speakers' element={<Speakers/>}/>
         <Route path='/all-organizers' element={<Organizers/>}/>
-        <Route path='/all-conferences' element={<Conferences/>}/>
+        <Route path='/all-conferences' element={<ConferenceTable/>}/>
+        <Route path='/detail-conference/:id' element={<DetailConferences/>}/>
         <Route path='/Venue' element={<Venue/>}/>
         <Route path='/terms-and-conditions' element={<Terms/>}/>
         <Route path='/publication-management' element={<PublicManagement/>}/>

@@ -1,9 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { addConference } from '../../../api/Api'
 import { useNavigate } from 'react-router-dom'
-import {getSponsers}  from '../../../api/Api';
-import {getVenues}  from '../../../api/Api';
-import {getSpeakers}  from '../../../api/Api';
+import {getSponsers,getVenues,getSpeakers, getOrganizers}  from '../../../api/Api';
 import Sidebar from '../../../components/Sidebar/Sidebar'
 import ViewConference from './ViewConference';
 
@@ -11,6 +9,17 @@ const AddConference = () => {
 
 
 
+  const [organizers, setOrganizers]= useState ([]);
+
+  useEffect(()=>{
+getAllOrganizers();
+  },[]);
+
+  const getAllOrganizers = async()=>{
+    let response =  await getOrganizers();
+    setOrganizers(response.data);
+ 
+   }
   const [venues, setVenue]= useState ([]);
 
   useEffect(()=>{
@@ -150,6 +159,21 @@ getAllSponsers();
                 {
                   speakers.map(name => (
                     <option key={name.speakeremail}>{name.speakeremail}</option>
+                  ))
+                }
+
+    </select>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom04" class="form-label">Organizer Name</label>
+    <select class="form-select" id="validationCustom04" required onChange={(e)=>onValueChange(e)} name='organizername'> 
+    <option selected value="" >Choose... </option>
+                {
+                  organizers.map(name => (
+                    <option key={name.organizerfullname}>{name.organizerfullname}</option>
                   ))
                 }
 
