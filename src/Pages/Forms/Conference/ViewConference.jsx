@@ -8,7 +8,7 @@ const ViewConference = () => {
   const [selectedRowData, setSelectedRowData] = useState(null);
   const [searchCriteria, setSearchCriteria] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage =1;
+  const itemsPerPage =10;
 
   useEffect(() => {
     getAllConferences();

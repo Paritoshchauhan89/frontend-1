@@ -24,7 +24,7 @@ const Post = () => {
     <>
  {
     newss.map((news)=>
-    <ul className="list-unstyled">
+    <ul className="list-unstyled" key={news._id}>
     
     <li>
       <Link className="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-center py-3 link-body-emphasis text-decoration-none border" to={`/detail-news/${news._id}`}>

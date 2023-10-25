@@ -47,7 +47,7 @@ getAllGallerys();
     </div>
     {
       gallerys.map(gallery=>(
-        <div className="carousel-item">
+        <div className="carousel-item" key={gallery._id}>
       <div className="card-wrapper container-sm d-flex   justify-content-around">
        {
         gallerys.map(gallery=>(

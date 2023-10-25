@@ -37,7 +37,7 @@ const Cards = () => {
       <div className="row mx-2">
         <h1 className='text-center about'><strong>Know More..</strong></h1>
         {AboutCard.map((item) =>
-          <div className="col-md-4 mt-2 ">
+          <div className="col-md-4 mt-2" key={item._id}>
 
 
             <Link to={item.url}>

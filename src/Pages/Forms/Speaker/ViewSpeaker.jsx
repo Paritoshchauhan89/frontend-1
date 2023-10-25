@@ -4,7 +4,7 @@ import { getSpeakers, deleteSpeaker } from '../../../api/Api';
 import { Link } from 'react-router-dom';
 import JsPDF from 'jspdf';
 
-
+const itemsPerPage = 10;
 const generatePDF = () => {
 
   const report = new JsPDF('portrait','pt','a4','14');
@@ -18,6 +18,9 @@ const ViewSpeaker = () => {
 
   const [speakers, setSpeakers] = useState([]);
   const [selectedRowData, setSelectedRowData] = useState(null);
+  const [searchName, setSearchName] = useState('');
+  const [searchEmail, setSearchEmail] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     getAllSpeakers();
@@ -43,13 +46,68 @@ const ViewSpeaker = () => {
   const closeModal = () => {
     setSelectedRowData(null);
   };
+ // Function to filter conferences
+ const filteredSpeakers = speakers.filter((speaker) => {
+  const nameMatch = speaker.speakerfullname.toLowerCase().includes(searchName.toLowerCase());
+  const emailMatch = speaker.speakeremail.includes(searchEmail);
+  return nameMatch && emailMatch;
+});
 
+// Calculate the total number of pages
+const totalPages = Math.ceil(filteredSpeakers.length / itemsPerPage);
+
+// Calculate the start and end indexes for the current page
+const startIndex = (currentPage - 1) * itemsPerPage;
+const endIndex = startIndex + itemsPerPage;
+
+// Get the conferences to display on the current page
+const speakersToDisplay = filteredSpeakers.slice(startIndex, endIndex);
+
+// Function to handle page changes
+const handlePageChange = (page) => {
+  setCurrentPage(page);
+};
 
 
   return (
     <>
       <div className="mt-4">
         <p>Total Speakers: {speakers.length}</p>
+
+        <div className="d-flex mt-2 mb-4">
+          <div className="input-group mr-3">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search Speaker Name..."
+              aria-label="Search Titles"
+              aria-describedby="search-title-icon"
+              value={searchName}
+              onChange={(e) => setSearchName(e.target.value)}
+            />
+            <div className="input-group-append">
+              <span className="input-group-text" id="search-title-icon">
+                <i className="bi bi-search"></i>
+              </span>
+            </div>
+          </div>
+          <div className="input-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search Email..."
+              aria-label="Search Email"
+              aria-describedby="search-date-icon"
+              value={searchEmail}
+              onChange={(e) => setSearchEmail(e.target.value)}
+            />
+            <div className="input-group-append">
+              <span className="input-group-text" id="search-date-icon">
+                <i className="bi bi-search"></i>
+              </span>
+            </div>
+          </div>
+        </div>
         <table className="table table-striped table-hover">
           <thead className='table-success'>
             <tr>
@@ -65,7 +123,7 @@ const ViewSpeaker = () => {
           </thead>
           <tbody>
             {
-              speakers.map((speaker, index) => (
+              speakersToDisplay.map((speaker, index) => (
                 <tr key={speaker._id}>
                   <td style={{color:'rgb(13,110,253)'}}>{index + 1}</td>
                   <td>{speaker._id}</td>
@@ -84,6 +142,22 @@ const ViewSpeaker = () => {
 
           </tbody>
         </table>
+        <ul className="pagination justify-content-center">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <li
+              key={index}
+              className={`page-item ${index + 1 === currentPage ? 'active' : ''}`}
+            >
+              <button
+                className="page-link"
+                onClick={() => handlePageChange(index + 1)}
+              >
+                {index + 1}
+              </button>
+            </li>
+          ))}
+        </ul>
+
         {selectedRowData && (
           <div className="modal " style={{ display: 'block' }}>
             <div class="modal-dialog modal-dialog-scrollable">

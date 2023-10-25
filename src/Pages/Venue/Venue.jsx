@@ -33,7 +33,7 @@ const Venue = () => {
     <div className="row aos-init aos-animate" data-aos="fade-up" data-aos-delay={100}>
      {
       venues.map((venue)=>(
-        <div className="col-lg-4 col-md-6">
+        <div className="col-lg-4 col-md-6" key={venue._id}>
         <div className="hotel">
           <div className="hotel-img">
             <img src={venue.image} alt="Hotel 1" className="img-fluid" />

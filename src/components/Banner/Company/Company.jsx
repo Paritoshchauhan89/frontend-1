@@ -80,7 +80,7 @@ const Company = () => {
     <div className="row no-gutters mt-2 supporters-wrap clearfix aos-init aos-animate" data-aos="zoom-in" data-aos-delay={100}>
      
       {intiatives.map((item)=>
-       <div className="col-lg-3 col-md-4 col-xs-6">
+       <div className="col-lg-3 col-md-4 col-xs-6" key={item.name}>
        <Link to={item.url}>
        <div className="supporter-logo">
          <img src={item.img} className="img-fluid" alt="logo" />

@@ -1,6 +1,6 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../../Pages/redux/store";
@@ -32,58 +32,58 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg  sticky-top bg-light shadow  bg-white ">
         <div className="container ">
-          <Link className="navbar-brand" to="/">
+          <NavLink className="navbar-brand"  to="/">
             <img src={logo} width={'150'} alt="logo" />
-          </Link>
+          </NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-10 mb-2 mb-lg-0 m-2">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/about">About</Link>
+                <NavLink className="nav-link active" aria-current="page" to="/about">About</NavLink>
               </li> <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/services">Services</Link>
+                <NavLink className="nav-link active" aria-current="page" to="/services">Services</NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/all-sponsers">Sponsers</Link>
+                <NavLink className="nav-link active" aria-current="page" to="/all-sponsers">Sponsers</NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/venue">Venue</Link>
+                <NavLink className="nav-link active" aria-current="page" to="/venue">Venue</NavLink>
               </li>
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle active" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <NavLink className="nav-link dropdown-toggle active" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Who we are
-                </Link>
+                </NavLink>
                 <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" to="/blogs">Blogs</Link></li>
-                  <li><Link className="dropdown-item" to="/terms-and-conditions">Terms and Conditions</Link></li>
-                  <li><Link className="dropdown-item" to="/publication-management">Publication Management</Link></li>
+                  <li><NavLink className="dropdown-item" to="/blogs">Blogs</NavLink></li>
+                  <li><NavLink className="dropdown-item" to="/terms-and-conditions">Terms and Conditions</NavLink></li>
+                  <li><NavLink className="dropdown-item" to="/publication-management">Publication Management</NavLink></li>
                   <li><hr className="dropdown-divider" /></li>
-                  <li><Link className="dropdown-item" to="/faq">Faq</Link></li>
+                  <li><NavLink className="dropdown-item" to="/faq">Faq</NavLink></li>
                 </ul>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/contact">Contact Us</Link>
+                <NavLink className="nav-link active" aria-current="page" to="/contact">Contact Us</NavLink>
               </li>
               {!isLogin && (
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/login"><span className='btn btn-dark' style={{width:80}} >Login</span></Link>
+                <NavLink className="nav-link active" aria-current="page" to="/login"><span className='btn btn-dark' style={{width:80}} >Login</span></NavLink>
               </li>
                  )}
                     {isLogin && (
                 
                 <li>
-                 <Link className="nav-link active" aria-current="page" to="/dashboard/add-speaker"><span className='btn btn-dark' style={{width:100}}>Dashboard</span></Link>
+                 <NavLink className="nav-link active" aria-current="page" to="/dashboard/add-speaker"><span className='btn btn-dark' style={{width:100}}>Dashboard</span></NavLink>
                  </li>
                )}
               {isLogin && (
                 
                 <li>
-                 <Link className="nav-link active" aria-current="page" to="/"><span className='btn btn-dark' style={{width:80}} onClick={handleLogout} >LogOut</span></Link>
+                 <NavLink className="nav-link active" aria-current="page" to="/"><span className='btn btn-dark' style={{width:80}} onClick={handleLogout} >LogOut</span></NavLink>
                  </li>
                )}
               

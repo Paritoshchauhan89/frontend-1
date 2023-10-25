@@ -3,7 +3,7 @@ import Navbar from '../../components/Header/Navbar';
 import { Link } from 'react-router-dom';
 import { getConferences } from '../../api/Api';
 
-const itemsPerPage = 1; // Number of items to display per page
+const itemsPerPage = 10; // Number of items to display per page
 
 const ConferenceTable = () => {
   const [conferences, setConferences] = useState([]);
@@ -81,7 +81,7 @@ const ConferenceTable = () => {
           </div>
         </div>
 
-        <table className="table table-striped">
+        <table className="table table-striped border">
           <thead>
             <tr>
               <th scope="col">#</th>
