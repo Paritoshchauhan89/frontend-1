@@ -25,9 +25,10 @@ const AddNews = () => {
       
         
           const addNewsDetails = async()=>{
+            await addNews(news);
+
             alert('Data Submitted successfully');
 
-            await addNews(news);
            navigate('/add-news');
          }
   return (

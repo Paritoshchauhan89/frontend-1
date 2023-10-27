@@ -1,7 +1,8 @@
 import React from 'react'
+import '../../api/Assets/styles/main.css'
 import { Link } from 'react-router-dom'
 import Subscribe from '../Subscribe/Subscribe'
-
+import './footer.css'
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
   <div className="footer-content">
     <div className="container">
       <div className="row g-5">
-        <div className="col-lg-4">
+        <div className="about-col-lg-4">
           <h3 className="footer-heading">About Stm conference</h3>
           <p className='h6'>Welcome to STM Conference, a leading organization dedicated to organizing and facilitating high-quality conferences and events all over the world.</p>
           <p><Link to="#" className="footer-link-more">Learn More</Link></p>

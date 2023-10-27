@@ -1,5 +1,5 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import React, { useState } from 'react'
+import {  Routes, Route, Navigate, Outlet } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import './App.css';
 import Contact from './Pages/Contact/Contact';
@@ -53,122 +53,87 @@ import ConferenceTable from './Pages/Conferences/ConferenceTable';
 import DetailConferences from './Pages/Conferences/DetailConferences';
 
 
+
+const PrivateRoute = ({ isAuthenticated, ...props }) => {
+  return isAuthenticated ?
+    <>
+      <Outlet />
+    </>
+    : <Navigate replace to='/login' />
+}
+
 const App = () => {
+  const [isAuthenticated, isUserAuthenticated] = useState(false);
+
 
   return (
+
     <>
-    <BrowserRouter>
-   
-    <ScrollToTop>
-    <Routes>
-    <Route exact path='/' element={<Home/>}/>
-    <Route path='/about' element={<About/>}/>
-        <Route  path='*' element={<Error/>}/>
-        <Route path='/all-sponsers' element={<Sponsers/>}/>
-        <Route path='/faq' element={<Faq/>}/>
-        <Route path='/blogs' element={<BlogList/>}/>
-        <Route path='/services' element={<Services/>}/>
-        <Route path='/all-speakers' element={<Speakers/>}/>
-        <Route path='/all-organizers' element={<Organizers/>}/>
-        <Route path='/all-conferences' element={<ConferenceTable/>}/>
-        <Route path='/detail-conference/:id' element={<DetailConferences/>}/>
-        <Route path='/Venue' element={<Venue/>}/>
-        <Route path='/terms-and-conditions' element={<Terms/>}/>
-        <Route path='/publication-management' element={<PublicManagement/>}/>
-        <Route path='/sponser-detail' element={<SponserDetaiil/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/services-detail' element={<Services1/>}/>
 
 
-{/*  sponser forms */}
-<Route path='/dashboard/add-sponser' element={<SponserForm/>}/>
-<Route path='/dashboard/all-sponsers' element={<ViewSponser/>}/>
-<Route path='/detail-sponser/:id' element={<SponserDetaiil/>}/>
-<Route path='/dashboard/edit-sponser/:id' element={<EditSponser/>}/>
+        <ScrollToTop>
+          <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='*' element={<Error />} />
+            <Route path='/all-sponsers' element={<Sponsers />} />
+            <Route path='/faq' element={<Faq />} />
+            <Route path='/blogs' element={<BlogList />} />
+            <Route path='/services' element={<Services />} />
+            <Route path='/all-speakers' element={<Speakers />} />
+            <Route path='/all-organizers' element={<Organizers />} />
+            <Route path='/all-conferences' element={<ConferenceTable />} />
+            <Route path='/detail-conference/:id' element={<DetailConferences />} />
+            <Route path='/Venue' element={<Venue />} />
+            <Route path='/terms-and-conditions' element={<Terms />} />
+            <Route path='/publication-management' element={<PublicManagement />} />
+            <Route path='/sponser-detail' element={<SponserDetaiil />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/services-detail' element={<Services1 />} />
 
-{/* speaker form */}
-<Route path='/dashboard/add-speaker' element={<SpeakerForm/>}/>
-<Route path='/dashboard/all-speakers' element={<ViewSpeaker/>}/>
-<Route path='/speaker-detail/:id' element={<SpeakerDetaiil/>}/>
-<Route path='/dashboard/edit-speaker/:id' element={<EditSpeaker/>}/>
-
-{/* Organizer Form */}
-<Route path='dashboard/add-organizer' element={<AddOrganizer/>}/>
-<Route path='/dashboard/all-organizers' element={<ViewOrganizer/>}/>
-<Route path='/organizer-detail/:id' element={<Organizerdetail/>}/>
-<Route path='/dashboard/edit-organizer/:id' element={<EditOrganizer/>}/>
-        
-        {/* testnomial  feedback */}
-        <Route path='/feedback' element={<Feedback/>}/>
-        <Route path='/dashboard/view-testnomial' element={<ViewTestnomial/>}/>
-
-
-
-
-
-{/* news section */}
-<Route path='/dashboard/add-news' element={<AddNews/>}/>
-<Route path='/dashboard/edit-news/:id' element={<EditNews/>}/>
-<Route path='/detail-news/:id' element={<Singleblog/>}/>
+       <Route path='/dashboard/add-news' element={<AddNews />} />
+            <Route path='/' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+              <Route path='/dashboard/add-sponser' element={<SponserForm />} />
+              <Route path='/dashboard/all-sponsers' element={<ViewSponser />} />
+              <Route path='/dashboard/edit-sponser/:id' element={<EditSponser />} />
+              <Route path='/dashboard/add-speaker' element={<SpeakerForm />} />
+              <Route path='/dashboard/all-speakers' element={<ViewSpeaker />} />
+              <Route path='/dashboard/edit-speaker/:id' element={<EditSpeaker />} />
+              <Route path='dashboard/add-organizer' element={<AddOrganizer />} />
+              <Route path='/dashboard/all-organizers' element={<ViewOrganizer />} />
+              <Route path='/dashboard/edit-organizer/:id' element={<EditOrganizer />} />
+              <Route path='/dashboard/view-testnomial' element={<ViewTestnomial />} />
        
-       
-       {/* user register /login  */}
-<Route path='/register'element={<Register/>}/>
-        
-<Route path='/login'element={<Login/>}/>
-<Route path='/dashboard/all-users'element={<ViewUsers/>}/>
+              <Route path='/dashboard/edit-news/:id' element={<EditNews />} />
+              <Route path='/dashboard/add-conference' element={<AddConference />} />
+              <Route path='/dashboard/edit-conference/:id' element={<EditConference />} />
+              <Route path='/dashboard/all-users' element={<ViewUsers />} />
+              <Route path='/dashboard/all-enrollments' element={<ViewEnroll />} />
+              <Route path='/register' element={<Register />} />
+              <Route path='/dashboard/add-venue' element={<AddVenue />} />
+              <Route path='/dashboard/add-gallery' element={<AddGallery />} />
+              <Route path='/dashboard/edit-gallery/:id' element={<EditGallery />} />
+              <Route path='/dashboard/add-faq' element={<AddFaq />} />
+              <Route path='/dashboard/edit-faq/:id' element={<EditFaq />} />
+              <Route path='/dashboard/all-contacts/' element={<ViewContact />} />
+              <Route path='/dashboard/upload' element={<AddMedia />} />
+              <Route path='/dashboard/all-subscribers/' element={<ViewSubscribe />} />
+              <Route path='/dashboard/edit-venue/:id' element={<EditVenue />} />
+            </Route>
+
+            <Route path='/detail-sponser/:id' element={<SponserDetaiil />} />
+            <Route path='/speaker-detail/:id' element={<SpeakerDetaiil />} />
+            <Route path='/organizer-detail/:id' element={<Organizerdetail />} />
+            <Route path='/feedback' element={<Feedback />} />
+            <Route path='/detail-news/:id' element={<Singleblog />} />
+            <Route path='/login' element={<Login isUserAuthenticated={isUserAuthenticated} />} />
+            <Route path='/conference-enrollment' element={<Enroll />} />
 
 
-{/* conference section */}
-<Route path='/dashboard/add-conference' element={<AddConference/>}/>
-<Route path='/dashboard/edit-conference/:id' element={<EditConference/>}/>
+          </Routes>
 
+        </ScrollToTop>
 
-{/* venue section */}
-<Route path='/dashboard/add-venue' element={<AddVenue/>}/>
-
-{/* Gallery section */}
-
-<Route path='/dashboard/add-gallery' element={<AddGallery/>}/>
-<Route path='/dashboard/edit-gallery/:id' element={<EditGallery/>}/>
-
-
-
-{/* faq section */}
-
-<Route path='/dashboard/add-faq' element={<AddFaq/>}/>
-<Route path='/dashboard/edit-faq/:id' element={<EditFaq/>}/>
-
-
-{/* contact data */}
-
-<Route path='/dashboard/all-contacts/' element={<ViewContact/>}/>
-
-
-{/* subscribe data */}
-<Route path='/dashboard/all-subscribers/' element={<ViewSubscribe/>}/>
-
-
-
-{/* venue section */}
-<Route path='/dashboard/edit-venue/:id' element={<EditVenue/>}/>
-
-
-{/* upload media */}
-<Route path='/dashboard/upload' element={<AddMedia/>}/>
-
-
-
-{/* enrollment form */}
-<Route path='/conference-enrollment' element={<Enroll/>}/>
-<Route path='/dashboard/all-enrollments' element={<ViewEnroll/>}/>
-
-
-    </Routes>
-    
-     </ScrollToTop>
-
-     </BrowserRouter>    
     </>
   )
 }

@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const Login = () => {
+const Login = ({ isUserAuthenticated }) => {
 
 
 
@@ -43,6 +43,7 @@ const Login = () => {
         toast.dismiss();
         localStorage.setItem('userId', data?.user._id);
         dispatch(authActions.login());
+        isUserAuthenticated(true);
         toast.success('User login Successfully');
         navigate('/dashboard/add-sponser');
       } else {

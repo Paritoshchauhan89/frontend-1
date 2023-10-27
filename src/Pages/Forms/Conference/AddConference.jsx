@@ -210,7 +210,7 @@ getAllSponsers();
             <textarea rows="5" cols="50" onChange={(e) => onValueChange(e)} name='description' />
            
             <div className="col-md-3">
-              <label htmlFor="validationCustom02" className="form-label">Manuscript Submission Url</label>
+              <label htmlFor="validationCustom02" className="form-label">Conference Broucher Url</label>
               <input type="url" className="form-control" id="validationCustom02"  required onChange={(e) => onValueChange(e)} name='manuscriptsubmissionurl' />
               <div className="valid-feedback">
                 Looks good!

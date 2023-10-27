@@ -46,7 +46,7 @@ const DetailConferences = () => {
                   <th scope="row">1</th>
                   <td>Conference Title:</td>
                   <td>||</td>
-                  <td>{conferences.conferencetitle}</td>
+                  <td><b>{conferences.conferencetitle}</b></td>
                 </tr>
                 <tr>
                   <th scope="row">2</th>
@@ -80,11 +80,11 @@ const DetailConferences = () => {
 
 
             <div className="d-flex justify-content-between">
-              <span className='mt-4 fw-semibold'>Manuscript Submission Date :</span><Link to='#' ><button type='button' className='btn btn-outline-primary' style={{ width: '150px' }}>{conferences.manuscriptsubmissiondate}</button></Link>
+              <span className='mt-4 fw-semibold'>Conferences Broucher :</span><Link to={conferences.manuscriptsubmissionurl} download><button type='button' className='btn btn-outline-primary mb-4' style={{ width: '250px' }}>Download Broucher</button></Link>
             </div>
-            <div className="d-flex justify-content-between">
+            {/* <div className="d-flex justify-content-between">
               <span className='mt-4 fw-semibold'>Manuscript Last Date :</span><button type='button' className='btn btn-outline-success' style={{ width: '150px' }}>{conferences.manuscriptenddate}</button>
-            </div>
+            </div> */}
 
           </div>
 

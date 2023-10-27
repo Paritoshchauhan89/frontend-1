@@ -15,9 +15,6 @@ const Slider = () => {
 
 
 
-
-
-
             </div>
           </div>
           <div className="carousel-item">

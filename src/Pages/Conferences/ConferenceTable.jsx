@@ -21,11 +21,16 @@ const ConferenceTable = () => {
   };
 
   // Function to filter conferences
-  const filteredConferences = conferences.filter((conference) => {
+  const filteredConferences = conferences
+  .filter((conference) => {
     const titleMatch = conference.conferencetitle.toLowerCase().includes(searchTitle.toLowerCase());
     const dateMatch = conference.conferencestartdate.includes(searchDate);
     return titleMatch && dateMatch;
-  });
+  })
+  .sort((a, b) => new Date(b.conferencestartdate) - new Date(a.conferencestartdate));
+
+// Rest of your code remains the same
+
 
   // Calculate the total number of pages
   const totalPages = Math.ceil(filteredConferences.length / itemsPerPage);
